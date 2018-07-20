@@ -41,7 +41,7 @@ Example: ActiveSupport::Cache::MemoryStore.new, ActiveSupport::Cache::FileStore.
 
 ### translator
 
-Translator is expecting to recieve an instance of class, which is responsible for translating strings inside the team. It should implement methods "translate" and "locale". It can be I18n or it can be any other custom class, which reads translation strings from some other places (database).
+Translator is expecting to recieve an instance of class, which is responsible for translating strings inside the theme. It should implement methods "translate" and "locale". It can be I18n or it can be any other custom class, which reads translation strings from some other places (database).
 
 ### assets_remote_host
 
