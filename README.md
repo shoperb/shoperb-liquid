@@ -45,7 +45,7 @@ Translator is expecting to recieve an instance of class, which is responsible fo
 
 ### assets_remote_host
 
-This configuration defines the remote host for assets (if any) and used in quch liquid filters, like theme_filters#customize.
+This configuration defines the remote host for assets (if any) and is used in such liquid filters, like theme_filters#customize.
 
 ### routes
 
@@ -126,7 +126,7 @@ Options, provided to the template, are passed by __shoperb_liquid__ gem. However
 * __current_cart__: object
 * __current_customer__: object
 * __current_settings__: hash
-* __ResourceHints__: object
+* __ResourceHints__: object (optional)
 
 ## Contributing
 
