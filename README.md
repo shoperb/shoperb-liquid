@@ -105,14 +105,6 @@ File System is a class, responsible for fetching theme files (for example from t
 
 Liquid error mode. Values: strict, :warn, lax (default).
 
-## Liquid template registers
-
-Before rendering template the host application should provide registers with the following variables:
-
-* __shop__
-* __theme__
-* __controller__
-
 ## Liquid template options
 
 Options, provided to the template, are passed by __shoperb_liquid__ gem. However, options should be built in the appropriate context. In order for them to be built correctly, context should have following variables:
