@@ -58,7 +58,7 @@ module ShoperbLiquid
           settings:      ThemeSettingsDrop.new(current_settings),
           preview:       params[:theme_id].present?,
           edit_preview:  params[:iframe_uuid].present?,
-          integrations:  IntegrationsDrop.new(shop.grouped_integrations),
+          integrations:  IntegrationsDrop.new(locals[:shop].grouped_integrations),
           preconnects:   defined?(ResourceHints) ? ResourceHints.preconnects : [],
         }
       end
