@@ -26,8 +26,7 @@ module ShoperbLiquid
 
     def options(context, locals)
       context.instance_eval do
-        params = (params || {}).with_indifferent_access
-
+        params = (self.params || {}).with_indifferent_access
         {
           errors:        CollectionDrop.new(flash[:errors]),
           meta:          MetaDrop.new(locals.delete(:meta)),
