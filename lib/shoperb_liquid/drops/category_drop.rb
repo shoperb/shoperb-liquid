@@ -1,0 +1,83 @@
+# frozen_string_literal: true
+
+module ShoperbLiquid
+  class CategoryDrop < Base
+    def initialize(record)
+      @record = record || Category.new
+    end
+
+    def id
+      record.id
+    end
+
+    def name
+      record.name
+    end
+
+    def handle
+      record.permalink
+    end
+
+    def parent
+      record.parent
+    end
+
+    def level
+      record.level
+    end
+
+    def url
+      record.id ? routes.store_category_path(record) : ""
+    end
+
+    def image
+      ImageDrop.new(record.image) if record.image
+    end
+
+    def root
+      CategoryDrop.new(record.root)
+    end
+
+    def root?
+      record.root?
+    end
+
+    def current?
+      record == current_category
+    end
+
+    def open?
+      current_category && current_category.descends_from(record)
+    end
+
+    def descends_from(other)
+      record.descends_from(other)
+    end
+
+    def parents
+      CategoriesDrop.new(record.ancestors)
+    end
+
+    def children
+      CategoriesDrop.new(record.children)
+    end
+
+    def children?
+      record.children.any?
+    end
+
+    def products
+      ProductsDrop.new(record.products.includes(:variants))
+    end
+
+    def products_with_children
+      ProductsDrop.new(record.products_for_self_and_children)
+    end
+
+    private
+
+    def current_category
+      controller.instance_variable_get("@category")
+    end
+  end
+end

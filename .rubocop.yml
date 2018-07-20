@@ -1,0 +1,131 @@
+Rails:
+  Enabled: true
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+  Exclude:
+    - 'tmp/**/*'
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'lib/tasks/**/*'
+    - '**/*.rake'
+    - 'config.ru'
+    - 'Gemfile'
+    - 'Rakefile'
+Style/Documentation:
+  Enabled: false
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/RescueModifier:
+  Enabled: false
+Style/DotPosition:
+  EnforcedStyle: trailing
+Style/ModuleFunction:
+  EnforcedStyle: extend_self
+Style/UnneededInterpolation:
+  Enabled: false
+Style/TernaryParentheses:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: false
+Lint/IneffectiveAccessModifier:
+  Enabled: false
+Lint/AssignmentInCondition:
+  Enabled: false
+Lint/RescueException:
+  Enabled: false
+Lint/UnusedBlockArgument:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: true
+Metrics/LineLength:
+  Max: 192
+Style/MultilineTernaryOperator:
+  Enabled: false
+Style/AlignHash:
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Style/BracesAroundHashParameters:
+  Enabled: false
+Style/ClosingParenthesisIndentation:
+  Enabled: false
+Style/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: new_line
+Style/IfUnlessModifierOfIfUnless:
+  Enabled: true
+Style/ClassVars:
+  Enabled: false
+Style/Documentation:
+  Enabled: true
+Style/DoubleNegation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: true
+Style/CaseIndentation:
+  IndentOneStep: true
+  EnforcedStyle: end
+Style/ParallelAssignment:
+  Enabled: false
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+Style/FormatString:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/PredicateName:
+  Enabled: false
+Style/NestedTernaryOperator:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+Style/WordArray:
+  Enabled: false
+Style/SafeNavigation:
+  Enabled: false
+Metrics/BlockNesting:
+  Enabled: false
+Performance/TimesMap:
+  Enabled: false
+Performance/CaseWhenSplat:
+  Enabled: false
+Rails/Delegate:
+  Enabled: false
+Style/MultilineBlockChain:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Style/CaseEquality:
+  Enabled: false
+Style/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+Style/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Style/LambdaCall:
+  EnforcedStyle: braces
+Style/FormatString:
+  EnforcedStyle: percent
+Style/Encoding:
+  EnforcedStyle: always
+Style/CommandLiteral:
+  AllowInnerBackticks: true
+Style/ClassCheck:
+  Enabled: false
+Style/IndentArray:
+  EnforcedStyle: consistent
+Style/IndentHash:
+  EnforcedStyle: consistent
