@@ -27,6 +27,7 @@ module ShoperbLiquid
     def options(context, locals)
       context.instance_eval do
         params = (self.params || {}).with_indifferent_access
+
         {
           errors:        CollectionDrop.new(flash[:errors]),
           meta:          MetaDrop.new(locals.delete(:meta)),
@@ -40,13 +41,13 @@ module ShoperbLiquid
           brands:        VendorsDrop.new,
           media_files:   CollectionDrop.new(MediaFile.includes(:file)),
           search:        SearchDrop.new(params[:query], params[:options]),
-          shop:          ShopDrop.new(shop),
+          shop:          ShopDrop.new(locals[:shop]),
           current_page:  (params[:page].to_i rescue 1),
           path:          request.path,
           params:        params,
           flash:         flash.to_hash.stringify_keys,
           get_params:    request.query_parameters,
-          template_name: template.to_s,
+          template_name: locals[:template].to_s,
           url:           Url::GetDrop.new,
           form_actions:  Url::PostDrop.new,
           paths:         Url::PostDrop.new, # alias
