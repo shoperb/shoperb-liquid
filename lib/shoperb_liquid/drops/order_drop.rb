@@ -119,7 +119,7 @@ module ShoperbLiquid
     end
 
     def url
-      routes.store_order_path(number)
+      controller.store_order_path(number)
     end
 
     def payment_url

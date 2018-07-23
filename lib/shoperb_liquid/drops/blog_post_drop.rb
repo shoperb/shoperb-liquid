@@ -31,7 +31,7 @@ module ShoperbLiquid
     end
 
     def url
-      routes.store_blog_post_path(record)
+      controller.store_blog_post_path(record)
     end
   end
 end

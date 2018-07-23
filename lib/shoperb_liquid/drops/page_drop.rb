@@ -19,7 +19,7 @@ module ShoperbLiquid
     end
 
     def url
-      routes.store_page_path(record)
+      controller.store_page_path(record)
     end
   end
 end

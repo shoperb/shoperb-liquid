@@ -67,7 +67,7 @@ module ShoperbLiquid
     end
 
     def url
-      routes.store_brand_path(record)
+      controller.store_brand_path(record)
     end
   end
 end

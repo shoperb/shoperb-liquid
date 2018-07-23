@@ -39,4 +39,7 @@ module ShoperbLiquid
 
   Registers.register_filters
   Registers.register_tags
+
+  class Template < Liquid::Template; end
+
 end

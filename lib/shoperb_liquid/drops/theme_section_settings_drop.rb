@@ -26,8 +26,9 @@ module ShoperbLiquid
       return unless @links[key]
       return value if @links[key]["style"].in?(immutable_link_styles)
 
-      parsed_path = routes.recognize_path(value)
-      routes.url_for(only_path: true, locale: current_locale, **parsed_path)
+      "/#{current_locale}#{value}"
+      # parsed_path = routes.recognize_path(value)
+      # routes.url_for(only_path: true, locale: current_locale, **parsed_path)
     end
 
     def immutable_link_styles

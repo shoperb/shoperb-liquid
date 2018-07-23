@@ -20,7 +20,7 @@ module ShoperbLiquid
     end
 
     def url
-      routes.store_product_path(record)
+      controller.store_product_path(record)
     end
 
     def max_price

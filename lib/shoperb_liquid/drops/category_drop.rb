@@ -27,7 +27,7 @@ module ShoperbLiquid
     end
 
     def url
-      record.id ? routes.store_category_path(record) : ""
+      record.id ? controller.store_category_path(record) : ""
     end
 
     def image

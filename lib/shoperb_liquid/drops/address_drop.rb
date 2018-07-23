@@ -85,9 +85,9 @@ module ShoperbLiquid
     def url
       if record.type == "AddressCustomer"
         if record.id
-          routes.store_address_path(record)
+          controller.store_address_path(record)
         else
-          routes.store_addresses_path
+          controller.store_addresses_path
         end
       end
     end
