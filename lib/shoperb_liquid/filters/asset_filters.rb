@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ShoperbLiquid
   module AssetFilters
     include ActionView::Helpers::AssetTagHelper

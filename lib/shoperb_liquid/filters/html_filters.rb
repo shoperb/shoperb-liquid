@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ShoperbLiquid
   module HtmlFilters
     def modulo_word(word, index, modulo)
