@@ -84,7 +84,7 @@ module ShoperbLiquid
     end
 
     def debug(object)
-      safe_join(["<pre>".safe_join, object.inspect, "</pre>".safe_join], "\n")
+      safe_join(["<pre>".html_safe, object.inspect, "</pre>".html_safe], "\n")
     end
 
     def numeric(value)
