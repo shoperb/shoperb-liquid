@@ -6,6 +6,7 @@ module ShoperbLiquid
   #
   module TranslateFilters
     def translate(string, **args)
+      args[:theme] = @context.registers[:theme]
       ShoperbLiquid.config.translator.translate(string, args)
     end
 
