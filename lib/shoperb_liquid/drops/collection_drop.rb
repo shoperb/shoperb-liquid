@@ -66,6 +66,10 @@ module ShoperbLiquid
       to_a.collect(&key.to_sym)
     end
 
+    def to_s
+      self.class.to_s
+    end
+
     protected
 
     def paginate(page, per_page)

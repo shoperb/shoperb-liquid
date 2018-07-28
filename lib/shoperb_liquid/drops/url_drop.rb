@@ -131,7 +131,7 @@ module ShoperbLiquid
 
       def auth_input
         name  = controller.try(:request_forgery_protection_token).to_s
-        value = controller.try(:form_authenticity_token)
+        value = controller.send(:form_authenticity_token) rescue nil
 
         %(<input type="hidden" name="#{name}" value="#{value}">)
       end
