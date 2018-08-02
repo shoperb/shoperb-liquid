@@ -46,6 +46,14 @@ module ShoperbLiquid
       record.city_state_with_zip
     end
 
+    def state_with_country
+      record.state_with_country
+    end
+
+    def zip_with_city
+      record.zip_with_city
+    end
+
     def street
       record.full_address
     end
