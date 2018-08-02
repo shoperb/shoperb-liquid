@@ -4,14 +4,15 @@ module ShoperbLiquid
   class Configuration
     attr_accessor :cache, :file_system, :translator,
       :assets_remote_host, :environment, :routes,
-      :models_namespace, :error_mode
+      :models_namespace, :error_mode, :error_notify
 
     def initialize
-      @cache       = default_cache
-      @file_system = default_file_system
-      @translator  = default_translator
-      @routes      = default_routes
-      @error_mode  = Liquid::Template.error_mode = :lax
+      @cache        = default_cache
+      @file_system  = default_file_system
+      @translator   = default_translator
+      @routes       = default_routes
+      @error_mode   = Liquid::Template.error_mode = :lax
+      @error_notify = default_error_notify
       @models_namespace = nil
     end
 
@@ -50,6 +51,14 @@ module ShoperbLiquid
 
     def default_routes
       AbstractRoutesHelper.new
+    end
+
+    def default_error_notify
+      lambda { |error, template_name, line_number| }
+    end
+
+    def error_notify(*args)
+      @error_notify.call(*args)
     end
 
     #

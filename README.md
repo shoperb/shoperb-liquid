@@ -30,6 +30,7 @@ ShoperbLiquid.configure do |config|
   config.models_namespace = nil
   conifg.file_system = MyFileSystem.new
   config.error_mode = :strict
+  config.error_notify = lambda { |error, template, line| }
 end
 ```
 
