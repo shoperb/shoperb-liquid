@@ -127,7 +127,7 @@ module ShoperbLiquid
         routes.store_checkout_order_url(
           id: record.checkout.token,
           state: :payment,
-          host: shop.external_hostname
+          host: shop.domain
         )
       end
     end
