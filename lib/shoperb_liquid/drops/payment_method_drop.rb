@@ -6,6 +6,10 @@ module ShoperbLiquid
       record.name
     end
 
+    def display_name
+      record.display_name
+    end
+
     def provider
       record.name
     end
