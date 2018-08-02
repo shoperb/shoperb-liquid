@@ -35,6 +35,10 @@ module ShoperbLiquid
       end
     end
 
+    def error_notify(*args)
+      @error_notify.call(*args)
+    end
+
     private
 
     def default_cache
@@ -54,11 +58,7 @@ module ShoperbLiquid
     end
 
     def default_error_notify
-      lambda { |error, template_name, line_number| }
-    end
-
-    def error_notify(*args)
-      @error_notify.call(*args)
+      lambda { |error, template, line| }
     end
 
     #
