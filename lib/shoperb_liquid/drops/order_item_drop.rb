@@ -68,6 +68,10 @@ module ShoperbLiquid
       record.url
     end
 
+    def download_url
+      record.download_url
+    end
+
     def requires_taxation?
       record.charge_taxes?
     end
