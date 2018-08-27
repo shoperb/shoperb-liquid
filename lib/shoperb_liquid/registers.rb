@@ -26,7 +26,7 @@ module ShoperbLiquid
 
     def options(context, locals)
       context.instance_eval do
-        params = (self.params || {}).with_indifferent_access
+        params = (self.params.to_unsafe_h || {}).with_indifferent_access
 
         {
           errors:        CollectionDrop.new(flash[:errors]),

@@ -5,13 +5,13 @@ module ShoperbLiquid
     def stylesheet_tag(url, media=:screen)
       check_asset_defined_in_spec(url, :stylesheets)
 
-      tag :link, rel: :stylesheet, type: Mime::CSS, media: media, href: url
+      tag :link, rel: :stylesheet, type: Mime[:css], media: media, href: url
     end
 
     def javascript_tag(url)
       check_asset_defined_in_spec(url, :javascripts)
 
-      content_tag :script, "", type: Mime::JS, src: url
+      content_tag :script, "", type: Mime[:js], src: url
     end
 
     def icon_tag(url)
