@@ -49,7 +49,7 @@ module ShoperbLiquid
         scope   = collection.send(:paginate, current, @page_size)
 
         paginator = {
-          pages:      scope.collection.num_pages,
+          pages:      scope.collection.total_pages,
           total:      scope.collection.total_count,
           last:       scope.collection.total_count - 1,
           size:       scope.collection.limit_value,
@@ -66,7 +66,7 @@ module ShoperbLiquid
         other_params = context["get_params"]
 
         has_prev_page = (paginator[:page] - 1) >= 1
-        has_next_page = (paginator[:page] + 1) <= scope.collection.num_pages
+        has_next_page = (paginator[:page] + 1) <= scope.collection.total_pages
 
         previous_text = ShoperbLiquid.config.translator.translate("navigation.previous", locale: context.registers[:locale])
         next_text = ShoperbLiquid.config.translator.translate("navigation.next", locale: context.registers[:locale])
