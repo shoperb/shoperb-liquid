@@ -15,7 +15,8 @@ module ShoperbLiquid
     end
 
     def content
-      record.content
+      locals = @context.environments[0].symbolize_keys
+      record.content(@context.registers[:theme], controller, locals)
     end
 
     def url
