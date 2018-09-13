@@ -46,7 +46,7 @@ module ShoperbLiquid
     end
 
     def settings_images
-      Hash[settings.each do |handle, value|
+      Hash[settings.map do |handle, value|
         if match = value.to_s.match(image_regex)
           [handle, match[:id]]
         end
