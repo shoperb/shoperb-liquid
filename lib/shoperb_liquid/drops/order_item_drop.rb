@@ -89,7 +89,7 @@ module ShoperbLiquid
     end
 
     def image
-      ImageDrop.new(record.variant.image) if record.variant.image
+      ImageDrop.new(record.variant.image) if record.variant && record.variant.image
     end
   end
 end
