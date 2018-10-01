@@ -60,6 +60,10 @@ module ShoperbLiquid
       record.product_attributes.map(&:value)
     end
 
+    def tags
+      record.tags
+    end
+
     def category
       CategoryDrop.new(record.category)
     end
