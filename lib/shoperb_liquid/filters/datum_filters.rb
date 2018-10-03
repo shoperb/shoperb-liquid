@@ -109,6 +109,10 @@ module ShoperbLiquid
     end
     deprecate :random
 
+    def sum(collection, field)
+      collection.pluck(field).sum
+    end
+
     protected
 
     def shop
