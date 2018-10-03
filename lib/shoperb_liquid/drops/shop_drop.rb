@@ -47,7 +47,7 @@ module ShoperbLiquid
     end
 
     def possible_languages
-      record.possible_languages
+      record.all_languages
     end
 
     def currency
