@@ -80,10 +80,6 @@ module ShoperbLiquid
       record.digital
     end
 
-    def warehouse_stock
-      record.warehouse_stock
-    end
-
     def url
       record.url
     end
