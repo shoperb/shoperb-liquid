@@ -22,6 +22,19 @@ module ShoperbLiquid
     def url
       controller.store_product_path(record)
     end
+    
+    def dirty_variant_attributes
+      if record.respond_to?(:dirty_variant_attributes) && record.dirty_variant_attributes
+       record.dirty_variant_attributes
+      else
+       record.variants.each_with_object({}) do |v,h|
+        v.variant_attributes.each do |va|
+          h[va.name] ||= []
+          h[va.name]  |= [va.value]
+         end
+        end
+      end
+    end
 
     def max_price
       record.maximum_price
