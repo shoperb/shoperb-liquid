@@ -106,7 +106,9 @@ module ShoperbLiquid
       end
 
       def cart_update
-        controller.update_store_cart_path
+        val = controller.update_store_cart_path
+        val = val[0..-2] if val.ends_with?('/')
+        val
       end
 
       def signup
