@@ -60,6 +60,7 @@ module ShoperbLiquid
           edit_preview:  params[:iframe_uuid].present?,
           integrations:  IntegrationsDrop.new(locals[:shop].grouped_integrations),
           preconnects:   defined?(ResourceHints) ? ResourceHints.preconnects : [],
+          product_types: ProductTypesDrop.new,
         }
       end
     end
