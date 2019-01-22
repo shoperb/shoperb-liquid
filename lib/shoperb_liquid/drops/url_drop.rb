@@ -78,6 +78,10 @@ module ShoperbLiquid
         request.try(:path)
       end
 
+      def canonical_path
+        controller.url_for(only_path: true)
+      end
+
       def current_host
         request.try(:host)
       end
