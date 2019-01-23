@@ -10,6 +10,8 @@ module ShoperbLiquid
       @section = section
       @settings = section["settings"] || {}
       @translations = section["translations"] || {}
+      @settings = @settings.reverse_merge(@translations[current_locale] || {})
+
       @links = section["links"] || {}
 
       super(@settings)
