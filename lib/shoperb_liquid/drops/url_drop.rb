@@ -70,8 +70,16 @@ module ShoperbLiquid
         request.try(:url)
       end
 
+      def canonical_url
+        controller.url_for(only_path: false)
+      end
+
       def current_path
         request.try(:path)
+      end
+
+      def canonical_path
+        controller.url_for(only_path: true)
       end
 
       def current_host
@@ -102,7 +110,9 @@ module ShoperbLiquid
       end
 
       def cart_update
-        controller.update_store_cart_path
+        val = controller.update_store_cart_path
+        val = val[0..-2] if val.ends_with?('/')
+        val
       end
 
       def signup
