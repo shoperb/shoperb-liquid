@@ -22,7 +22,7 @@ module ShoperbLiquid
     def url
       controller.store_product_path(record)
     end
-    
+
     def dirty_variant_attributes
       if record.respond_to?(:dirty_variant_attributes) && record.dirty_variant_attributes
        record.dirty_variant_attributes
@@ -121,6 +121,10 @@ module ShoperbLiquid
       return ProductsDrop.new(Product.none) unless record.category
 
       ProductsDrop.new(record.category.products_for_self_and_children.where.not(id: record.id))
+    end
+
+    def reviews
+      CollectionDrop.new(record.reviews.visible.with_content)
     end
 
     private
