@@ -139,6 +139,10 @@ module ShoperbLiquid
         controller.store_addresses_path
       end
 
+      def reviews
+        controller.store_reviews_path
+      end
+
       def auth_input
         name  = controller.try(:request_forgery_protection_token).to_s
         value = controller.send(:form_authenticity_token) rescue nil
