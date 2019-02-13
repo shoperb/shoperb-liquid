@@ -69,5 +69,9 @@ module ShoperbLiquid
     def google_analytics
       record.tracking_script.try(:google).try(:presence)
     end
+
+    def reviews?
+      record.reviews
+    end
   end
 end
