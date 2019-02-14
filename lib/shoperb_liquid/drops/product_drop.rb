@@ -127,6 +127,10 @@ module ShoperbLiquid
       CollectionDrop.new(record.reviews.visible.with_content)
     end
 
+    def reviewable?
+      record.reviewable?(current_customer)
+    end
+
     private
 
     def _variants
