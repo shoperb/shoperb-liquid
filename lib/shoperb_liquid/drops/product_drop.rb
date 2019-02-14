@@ -131,6 +131,10 @@ module ShoperbLiquid
       record.reviewable?(current_customer)
     end
 
+    def rating
+      record.rating
+    end
+
     private
 
     def _variants
