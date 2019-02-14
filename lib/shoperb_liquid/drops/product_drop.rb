@@ -74,7 +74,7 @@ module ShoperbLiquid
     end
 
     def tags
-      record.tags
+      record.grouping_tags
     end
 
     def category
