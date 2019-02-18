@@ -23,6 +23,10 @@ module ShoperbLiquid
       controller.store_product_path(record)
     end
 
+    def reviews_url
+      controller.reviews_store_product_path(record)
+    end
+
     def dirty_variant_attributes
       if record.respond_to?(:dirty_variant_attributes) && record.dirty_variant_attributes
        record.dirty_variant_attributes
