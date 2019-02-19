@@ -21,6 +21,7 @@ module ShoperbLiquid
       Liquid::Template.register_tag "form",     ShoperbLiquid::FormTag
       Liquid::Template.register_tag "section",  ShoperbLiquid::SectionTag
       Liquid::Template.register_tag "cache",    ShoperbLiquid::CacheTag
+      Liquid::Template.register_tag "products_filter",  ShoperbLiquid::ProductsFilterTag
       ''
     end
 
