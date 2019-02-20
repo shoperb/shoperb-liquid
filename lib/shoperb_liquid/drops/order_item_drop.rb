@@ -89,7 +89,7 @@ module ShoperbLiquid
     end
 
     def product_url
-      record.product.url
+      ProductDrop.new(record.product).url
     end
 
     def image
