@@ -92,6 +92,10 @@ module ShoperbLiquid
       ProductDrop.new(record.product).url
     end
 
+    def product_url_full
+      ProductDrop.new(record.product).url_full
+    end
+
     def image
       ImageDrop.new(record.variant.image) if record.variant && record.variant.image
     end

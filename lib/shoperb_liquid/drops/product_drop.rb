@@ -23,6 +23,10 @@ module ShoperbLiquid
       controller.store_product_path(record)
     end
 
+    def url_full
+      controller.store_product_url(record, host: shop.domain)
+    end
+
     def reviews_url
       controller.reviews_store_product_path(record)
     end
