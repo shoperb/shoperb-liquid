@@ -69,5 +69,15 @@ module ShoperbLiquid
     def vat_number
       record.vat_number
     end
+    
+    def custom_fields
+      CustomField.where(klass: record.class.to_s.demodulize, customer_see: true).
+        each_with_object({}) do |cf,hash|
+          hash[cf.handle] = cf.as_json
+          hash[cf.handle][:set_values]   = record.custom_field_values.to_h[cf.handle.to_s]
+          hash[cf.handle][:set_values] ||= cf.default_values if cf.default_values.select(&:present?).present?
+          hash[cf.handle][:set_values] ||= []
+      end
+    end
   end
 end
