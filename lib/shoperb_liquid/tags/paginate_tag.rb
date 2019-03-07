@@ -105,7 +105,7 @@ module ShoperbLiquid
 
     private
     
-    def total_count
+    def total_count(scope)
       @total_count||=scope.collection.total_count
     end
 
