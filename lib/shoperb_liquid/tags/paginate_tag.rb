@@ -50,8 +50,8 @@ module ShoperbLiquid
 
         paginator = {
           pages:      scope.collection.total_pages,
-          total:      scope.collection.total_count,
-          last:       scope.collection.total_count - 1,
+          total:      total_count(scope),
+          last:       total_count(scope) - 1,
           size:       scope.collection.limit_value,
           offset:     scope.collection.respond_to?(:offset_value) ? scope.collection.offset_value : scope.collection.offset,
           first:      1,
@@ -104,6 +104,10 @@ module ShoperbLiquid
     end
 
     private
+    
+    def total_count
+      @total_count||=scope.collection.total_count
+    end
 
     def window_size
       @attributes["window_size"]
