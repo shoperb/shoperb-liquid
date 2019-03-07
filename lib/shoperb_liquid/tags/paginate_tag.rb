@@ -49,9 +49,9 @@ module ShoperbLiquid
         scope   = collection.send(:paginate, current, @page_size)
 
         paginator = {
-          pages:      scope.collection.total_pages,
           total:      total_count(scope),
           last:       total_count(scope) - 1,
+          pages:      scope.collection.total_pages, # should be after total
           size:       scope.collection.limit_value,
           offset:     scope.collection.respond_to?(:offset_value) ? scope.collection.offset_value : scope.collection.offset,
           first:      1,
