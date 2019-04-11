@@ -20,25 +20,40 @@ module ShoperbLiquid
   # {% products_filter %}
   #
   class ProductsFilterTag < ::Liquid::Block
-    # SYNTAX = /(#{::Liquid::QuotedFragment})/
-
     def initialize(tag_name, markup, tokens)
       super
-
-      # if markup =~ SYNTAX
-      #   @subject = $1.strip[1..-2]
-      # else
-      #   raise ShoperbLiquid::SyntaxError, "Error in tag 'layout' - Valid syntax: form 'form_name'"
-      # end
     end
     
     def facets(context)
-      {}
+      json = {}
+      row = {}
+      context["products"].to_a.each_with_index do |pr, product_idx|
+        last_product=nil
+        pr.variants.each do |v|
+          v.attributes.each do |va|
+            json[va.handle]                             ||= { "name"  => va.name, "values" => {}}
+            json[va.handle]["values"][va.value]         ||= { "label" => va.value, "count" => 1 }
+            json[va.handle]["values"][va.value]["count"] += 1 if last_product != product_idx
+          end
+          last_product=product_idx
+          
+          row[:min] = v.price.to_d if row[:min].nil? || row[:min] > v.price.to_d
+          row[:max] = v.price.to_d if row[:max].nil? || row[:max] < v.price.to_d
+        end
+      end
+
+      json["price"] = {
+          "name"   => "Price",
+          "values" => {
+              "min" => {"label"=>"Minimum", "count"=>row[:min]},
+              "max" => {"label"=>"Maximum", "count"=>row[:max]}
+          }
+      }
+      json
     end
     
+    
     def render(context)
-      
-        
       context.stack do
         nodelist = []
         
