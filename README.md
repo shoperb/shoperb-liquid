@@ -58,6 +58,9 @@ This config is expecting a class, which is responsible for building urls. It sho
 * store_login_path
 * store_logout_path
 * store_account_path
+* add_store_account_billing_payment_methods_path
+* store_account_billing_payment_method_path
+* delete_store_account_billing_payment_method_path
 * store_address_path
 * store_addresses_path
 * store_blog_post_path

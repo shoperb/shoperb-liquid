@@ -85,6 +85,14 @@ module ShoperbLiquid
       def current_host
         request.try(:host)
       end
+      
+      def billing_payment_methods
+        controller.store_account_billing_payment_methods_path
+      end
+
+      def new_billing_payment_method
+        controller.add_store_account_billing_payment_methods_path
+      end
 
       private
 
