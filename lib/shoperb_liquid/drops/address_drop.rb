@@ -91,7 +91,7 @@ module ShoperbLiquid
     # if id not present, then create path.
     # This is for simplicity of theme creators
     def url
-      if record.type == "AddressCustomer"
+      if record&.type == "AddressCustomer"
         if record.id
           controller.store_address_path(record)
         else
