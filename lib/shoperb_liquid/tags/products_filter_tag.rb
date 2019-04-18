@@ -25,17 +25,18 @@ module ShoperbLiquid
     end
     
     def facets(context)
-      json = {}
-      row = {}
+      json    = {}
+      row     = {}
+      pr_idxs = {}
       context["products"].to_a.each_with_index do |pr, product_idx|
-        last_product=nil
         pr.variants.each do |v|
           v.attributes.each do |va|
+            pr_idxs["#{va.handle}:#{va.value}"] ||= Set.new
+            pr_idxs["#{va.handle}:#{va.value}"].add(product_idx)
             json[va.handle]                             ||= { "name"  => va.name, "values" => {}}
             json[va.handle]["values"][va.value]         ||= { "label" => va.value, "count" => 1 }
-            json[va.handle]["values"][va.value]["count"] += 1 if last_product != product_idx
+            json[va.handle]["values"][va.value]["count"]  = pr_idxs["#{va.handle}:#{va.value}"].size
           end
-          last_product=product_idx
           
           row[:min] = v.price.to_d if row[:min].nil? || row[:min] > v.price.to_d
           row[:max] = v.price.to_d if row[:max].nil? || row[:max] < v.price.to_d
