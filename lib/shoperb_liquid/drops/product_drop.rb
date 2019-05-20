@@ -18,6 +18,15 @@ module ShoperbLiquid
     def handle
       record.permalink
     end
+    
+    def stock
+      sum = 0
+      _variants.each do |v|
+        return nil if v.stock.nil?
+        sum += v.stock
+      end
+      sum
+    end
 
     def url
       controller.store_product_path(record)
