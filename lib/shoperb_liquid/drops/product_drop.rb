@@ -21,7 +21,7 @@ module ShoperbLiquid
     
     def stock
       sum = 0
-      _variants.each do |v|
+      variants.each do |v|
         return nil if v.stock.nil?
         sum += v.stock
       end
