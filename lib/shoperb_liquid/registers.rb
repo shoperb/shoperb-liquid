@@ -12,6 +12,7 @@ module ShoperbLiquid
       Liquid::Template.register_filter ShoperbLiquid::AssetFilters
       Liquid::Template.register_filter ShoperbLiquid::HtmlFilters
       Liquid::Template.register_filter ShoperbLiquid::TranslateFilters
+      Liquid::Template.register_filter ShoperbLiquid::ExtensionFilters
       Liquid::Template.register_filter ShoperbLiquid::ThemeFilters
     end
 
