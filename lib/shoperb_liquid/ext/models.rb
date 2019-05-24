@@ -37,6 +37,7 @@ module ShoperbLiquid
       :VariantAttribute,
       :Vendor,
       :CustomField,
+      :CustomerSubscriptionPlan,
     ].freeze
 
     # Regardless whether client models are namespaced or not,

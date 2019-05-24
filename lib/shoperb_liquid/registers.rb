@@ -65,6 +65,7 @@ module ShoperbLiquid
           integrations:  IntegrationsDrop.new(locals[:shop].grouped_integrations),
           preconnects:   defined?(ResourceHints) ? ResourceHints.preconnects : [],
           product_types: ProductTypesDrop.new,
+          plans:         CollectionDrop.new(CustomerSubscriptionPlan.active),
         }
       end
     end

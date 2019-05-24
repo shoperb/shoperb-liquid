@@ -135,6 +135,9 @@ module ShoperbLiquid
         :update_store_cart_path,
         :store_new_login_path,
         :store_upd_reset_password_path,
+        :store_account_subscriptions_path,
+        :store_account_subscription_plans_path,
+        :store_account_create_subscription_path,
       ].freeze
 
       PATHS.each do |path|

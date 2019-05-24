@@ -93,6 +93,18 @@ module ShoperbLiquid
       def new_billing_payment_method
         controller.add_store_account_billing_payment_methods_path
       end
+      
+      def store_account_subscriptions
+        controller.store_account_subscriptions_path
+      end
+
+      def store_account_subscription_plans
+        controller.store_account_subscription_plans_path
+      end
+
+      def store_account_create_subscription
+        controller.store_account_create_subscription_path
+      end
 
       private
 
