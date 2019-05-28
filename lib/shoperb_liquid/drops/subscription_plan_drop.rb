@@ -47,7 +47,7 @@ module ShoperbLiquid
     end
 
     def create_subscription_url
-      controller.store_account_create_subscription_path(plan_id: id)
+      controller.store_account_create_subscription_path(id)
     end
   end
 end
