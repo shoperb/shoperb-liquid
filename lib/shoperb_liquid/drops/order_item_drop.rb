@@ -2,6 +2,10 @@
 
 module ShoperbLiquid
   class OrderItemDrop < Base
+    def id
+      record.id
+    end
+    
     def name
       record.name
     end
@@ -63,6 +67,18 @@ module ShoperbLiquid
     def digital?
       record.digital?
     end
+    
+    def by_subscription?
+      record.by_subscription
+    end
+    
+    def item_original_id
+      record.item_original_id
+    end
+    
+    def money_was_repaid?
+      OrderItem.where(item_original_id: record.id).exists?
+    end
 
     def url
       record.url
@@ -82,6 +98,10 @@ module ShoperbLiquid
 
     def product_id
       record.product_id
+    end
+    
+    def variant_id
+      record.variant_id
     end
 
     def product_name
