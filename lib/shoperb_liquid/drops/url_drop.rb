@@ -105,6 +105,10 @@ module ShoperbLiquid
       def account_create_subscription
         controller.store_account_create_subscription_path
       end
+      
+      def order_returns
+        controller.store_order_returns_path
+      end
 
       private
 
