@@ -109,6 +109,10 @@ module ShoperbLiquid
       def order_returns
         controller.store_order_returns_path
       end
+      
+      def new_order_returns
+        controller.new_store_order_return
+      end
 
       private
 

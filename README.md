@@ -92,6 +92,7 @@ This config is expecting a class, which is responsible for building urls. It sho
 * store_account_subscription_plans_path
 * store_account_create_subscription_path
 * store_order_returns_path
+* new_store_order_return
 * store_order_return_path
 * store_order_return_generate_parcel_path
 
