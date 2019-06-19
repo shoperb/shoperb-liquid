@@ -70,6 +70,10 @@ module ShoperbLiquid
       record.vat_number
     end
     
+    def active_subscriptions
+      CollectionDrop.new(record.subscriptions.active)
+    end
+    
     def custom_fields
       CustomField.where(klass: record.class.to_s.demodulize, customer_see: true).
         each_with_object({}) do |cf,hash|
