@@ -36,7 +36,7 @@ module ShoperbLiquid
     end
 
     def price
-      record.variant.price
+      record.price
     end
 
     def discount_price
