@@ -78,6 +78,10 @@ module ShoperbLiquid
     def digital?
       record.variant.digital?
     end
+    
+    def by_subscription
+      record.by_subscription
+    end
 
     def vendor
       VendorDrop.new(record.vendor)
