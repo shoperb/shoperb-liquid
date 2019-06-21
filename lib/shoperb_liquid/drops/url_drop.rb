@@ -111,7 +111,7 @@ module ShoperbLiquid
       end
       
       def new_order_returns
-        controller.new_store_order_return
+        controller.new_store_order_return_path
       end
 
       private

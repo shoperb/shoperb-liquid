@@ -140,7 +140,7 @@ module ShoperbLiquid
         :store_account_create_subscription_path,
         :store_order_returns_path,
         :store_order_return_path,
-        :new_store_order_return,
+        :new_store_order_return_path,
         :store_order_return_generate_parcel_path,
       ].freeze
 
