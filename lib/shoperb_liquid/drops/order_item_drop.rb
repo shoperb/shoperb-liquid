@@ -93,7 +93,7 @@ module ShoperbLiquid
     end
 
     def category
-      record.category.name
+      record.category&.name
     end
 
     def product_id
@@ -105,7 +105,7 @@ module ShoperbLiquid
     end
 
     def product_name
-      record.product.name
+      record.product&.name
     end
 
     def product_url
