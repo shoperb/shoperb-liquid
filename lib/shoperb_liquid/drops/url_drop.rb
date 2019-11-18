@@ -175,7 +175,19 @@ module ShoperbLiquid
         name  = controller.try(:request_forgery_protection_token).to_s
         value = controller.send(:form_authenticity_token) rescue nil
 
-        %(<input type="hidden" name="#{name}" value="#{value}"> <input autocomplete="off" type="text" name="first_last_name" value="" style="color: black; display: none;" />)
+        %(<input type="hidden" name="#{name}" value="#{value}"> <input autocomplete="off" type="text" name="first_last_name" value="" class="shoperb_authenticity_token" />
+        <style>
+          .shoperb_authenticity_token{
+              opacity: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 0;
+              width: 0;
+              z-index: -1;
+          }
+      </style>
+        )
       end
     end
   end
