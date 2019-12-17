@@ -3,7 +3,7 @@
 module ShoperbLiquid
   class CustomerDrop < Base
     def id
-      record.id
+      record&.id
     end
 
     def name
