@@ -13,6 +13,10 @@ module ShoperbLiquid
     def handle
       record.handle
     end
+    
+    def image
+      ImageDrop.new(record.image) if record.image
+    end
 
     def content
       locals = @context.environments[0].symbolize_keys
