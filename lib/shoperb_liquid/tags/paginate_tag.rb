@@ -104,7 +104,7 @@ module ShoperbLiquid
     end
 
     private
-    
+
     def total_count(scope)
       @total_count||=scope.collection.total_count
     end
@@ -118,7 +118,7 @@ module ShoperbLiquid
     end
 
     def link(title, page, path, other_params={})
-      params = other_params.merge(page: page)
+      params = other_params.merge("page" => page)
       { "title" => title, "url" => path + "?#{params.to_query}", "is_link" => true }
     end
   end
