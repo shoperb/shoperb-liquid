@@ -79,11 +79,11 @@ module ShoperbLiquid
     end
 
     def state_code
-      record.state.try(:code)
+      record.state&.code
     end
 
     def country_code
-      record.country.try(:code)
+      record.country&.code
     end
 
     # return only for address customer
