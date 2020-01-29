@@ -114,7 +114,7 @@ module ShoperbLiquid
     end
 
     def no_link(title)
-      { "title" => title, "is_link" => false, "hellip_break" => title == "&hellip;" }
+      { "title" => title, "is_link" => false, "current" => title != "&hellip;" }
     end
 
     def link(title, page, path, other_params={})
