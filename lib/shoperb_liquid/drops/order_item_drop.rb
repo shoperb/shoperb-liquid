@@ -5,7 +5,7 @@ module ShoperbLiquid
     def id
       record.id
     end
-    
+
     def name
       record.name
     end
@@ -67,15 +67,15 @@ module ShoperbLiquid
     def digital?
       record.digital?
     end
-    
+
     def by_subscription?
       record.by_subscription
     end
-    
+
     def item_original_id
       record.item_original_id
     end
-    
+
     def money_was_repaid?
       OrderItem.where(item_original_id: record.id).exists?
     end
@@ -99,7 +99,7 @@ module ShoperbLiquid
     def product_id
       record.product_id
     end
-    
+
     def variant_id
       record.variant_id
     end
@@ -117,7 +117,20 @@ module ShoperbLiquid
     end
 
     def image
+      puts "Deprecated method. Use .variant_image or images to get product images"
+      variant_image
+    end
+
+    def variant_image
       ImageDrop.new(record.variant.image) if record.variant && record.variant.image
+    end
+
+    def images
+      if pr = record.product
+        CollectionDrop.new(pr.images.sorted)
+      else
+        []
+      end
     end
   end
 end
