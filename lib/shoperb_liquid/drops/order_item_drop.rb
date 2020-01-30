@@ -117,7 +117,7 @@ module ShoperbLiquid
     end
 
     def image
-      variant_image || images.first
+      @image ||= variant_image || images.first
     end
 
     def variant_image
