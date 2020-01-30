@@ -117,8 +117,7 @@ module ShoperbLiquid
     end
 
     def image
-      puts "Deprecated method OrderItemDrop#image. Use #variant_image or images to get product images"
-      variant_image
+      variant_image || images.first
     end
 
     def variant_image
