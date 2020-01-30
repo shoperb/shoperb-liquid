@@ -131,5 +131,9 @@ module ShoperbLiquid
         )
       end
     end
+
+    def invoice_url
+      'https://' + shop.domain + '/checkout/invoices/' + record.token
+    end
   end
 end
