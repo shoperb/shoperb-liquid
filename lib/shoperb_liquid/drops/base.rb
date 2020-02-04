@@ -9,7 +9,10 @@ module ShoperbLiquid
     end
 
     def inspect
-      "#{self.class}(#{record.id})"
+      meths = self.class.invokable_methods - Set["to_liquid","record"]
+      meths.delete_if{|meth| meth.end_with?("_url")}
+      json = meths.each_with_object({}){|meth,h| h[meth] = (public_send(meth).to_s rescue "")}.to_json
+      "#{self.class}(#{record.id})#{json}"
     end
 
     protected

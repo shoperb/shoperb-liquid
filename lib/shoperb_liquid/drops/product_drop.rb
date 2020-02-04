@@ -18,7 +18,7 @@ module ShoperbLiquid
     def handle
       record.permalink
     end
-    
+
     def stock
       sum = 0
       variants.each do |v|
