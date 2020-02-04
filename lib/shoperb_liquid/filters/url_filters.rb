@@ -25,9 +25,11 @@ module ShoperbLiquid
     end
 
     def link_to_locale(text, locale)
-      url = @context.registers[:controller].url_for(locale: locale)
+      link_to text, url_to_locale(locale)
+    end
 
-      link_to text, url
+    def url_to_locale(locale)
+      url = @context.registers[:controller].url_for(locale: locale)
     end
 
     def link_to_root(text)
