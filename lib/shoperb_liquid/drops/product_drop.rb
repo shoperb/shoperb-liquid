@@ -41,7 +41,7 @@ module ShoperbLiquid
     end
 
     def dirty_variant_attributes
-      if record.respond_to?(:dirty_variant_attributes) && record.dirty_variant_attributes
+      if record.dirty_variant_attributes.present?
        record.dirty_variant_attributes
       else
        record.variants.each_with_object({}) do |v,h|
@@ -50,6 +50,24 @@ module ShoperbLiquid
           h[va.name]  |= [va.value]
          end
         end
+      end
+    end
+
+    def variant_attributes
+      locale = I18n.locale
+      dirty  = dirty_variant_attributes
+      i18n   = VariantAttribute.
+        where(attribute_key: dirty.keys).
+        each_with_object({}){|e,h|
+          h[e.name]||=e.translations
+          break if h.size.eql?(dirty.size)
+        }
+
+      dirty.each_with_object({}) do |(k,v), h|
+        h[k] = {
+            "title"  => i18n[k].to_h["#{locale}.name"] || k,
+            "values" => v
+        }
       end
     end
 

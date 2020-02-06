@@ -125,5 +125,29 @@ module ShoperbLiquid
       cache_key = ["liquid.drop", "variant_drop_json", record.cache_key]
       ShoperbLiquid.config.cache.fetch(cache_key) { json }
     end
+
+
+    def as_json
+      {
+        id:id,
+        name: name,
+        product_id: record.product_id,
+        sku: sku,
+        weight: weight,
+        width: width,
+        height: height,
+        depth: depth,
+        price: price,
+        stock: stock,
+        discount_price: discount_price,
+        discount: discount?,
+        current_price: current_price,
+        compare_at: compare_at,
+        available: available?,
+        digital: digital,
+        url: url,
+        image: image&.url
+      }
+    end
   end
 end

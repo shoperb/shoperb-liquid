@@ -125,6 +125,7 @@ module ShoperbLiquid
         :store_pages_path,
         :store_product_path,
         :store_products_path,
+        :store_variants_path,
         :store_subscribers_add_path,
         :store_search_path,
         :store_recover_password_path,

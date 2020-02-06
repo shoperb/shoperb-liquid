@@ -85,7 +85,7 @@ module ShoperbLiquid
       def current_host
         request.try(:host)
       end
-      
+
       def billing_payment_methods
         controller.store_account_billing_payment_methods_path
       end
@@ -93,7 +93,7 @@ module ShoperbLiquid
       def new_billing_payment_method
         controller.add_store_account_billing_payment_methods_path
       end
-      
+
       def account_subscriptions
         controller.store_account_subscriptions_path
       end
@@ -105,11 +105,11 @@ module ShoperbLiquid
       def account_create_subscription
         controller.store_account_create_subscription_path
       end
-      
+
       def order_returns
         controller.store_order_returns_path
       end
-      
+
       def new_order_returns
         controller.new_store_order_return_path
       end
@@ -169,6 +169,10 @@ module ShoperbLiquid
 
       def reviews
         controller.store_reviews_path
+      end
+
+      def variants
+        controller.store_variants_path
       end
 
       def auth_input
