@@ -130,7 +130,6 @@ module ShoperbLiquid
     def as_json
       {
         id:id,
-        name: name,
         product_id: record.product_id,
         sku: sku,
         weight: weight,
