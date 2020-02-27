@@ -2,6 +2,10 @@
 
 module ShoperbLiquid
   class AddressDrop < Base
+    def id
+      record.id
+    end
+
     def name
       record.name
     end
