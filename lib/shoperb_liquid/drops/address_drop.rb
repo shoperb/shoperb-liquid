@@ -90,6 +90,10 @@ module ShoperbLiquid
       record.country&.code
     end
 
+    def zip
+      record.zip
+    end
+
     # return only for address customer
     # if have id then showing edit/update path
     # if id not present, then create path.
