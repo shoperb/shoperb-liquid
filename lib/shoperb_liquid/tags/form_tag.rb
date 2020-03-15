@@ -39,10 +39,9 @@ module ShoperbLiquid
     # returns input with protection token and honeypot protection
     def auth_token(context)
       controller = context.registers[:controller]
-      name = controller.send(:request_forgery_protection_token).to_s
       value = controller.send(:form_authenticity_token)
 
-      %(<input type="hidden" name="#{name}" value="#{value}"> <input autocomplete="off" type="text" name="first_last_name" value="" style="color: black; display: none;" />)
+      %(<input type="hidden" name="form_authenticity_token" value="#{value}"> <input autocomplete="off" type="text" name="first_last_name" value="" style="color: black; display: none;" />)
     end
   end
 end
