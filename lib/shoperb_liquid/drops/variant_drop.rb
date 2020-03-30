@@ -47,6 +47,9 @@ module ShoperbLiquid
     def compare_at
       record.compare_at
     end
+    def market_price
+      record.compare_at
+    end
 
     def available?
       record.available?(:warehouse)
