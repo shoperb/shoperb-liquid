@@ -73,17 +73,14 @@ module ShoperbLiquid
     protected
 
     def paginate(page, per_page)
-      puts "Deprecated: CollectionDrop#paginate"
       self.class.new(collection.page(page).per(per_page))
     end
 
     def limit_value
-      puts "Deprecated: CollectionDrop#limit_value"
       (collection.respond_to?(:limit_value) && collection.limit_value) || 50
     end
 
     def limited
-      puts "Deprecated: CollectionDrop#limited"
       (collection.respond_to?(:limit) && collection.limit(limit_value)) || collection.slice(0..limit_value)
     end
 

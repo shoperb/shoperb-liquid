@@ -46,27 +46,27 @@ module ShoperbLiquid
         collection ||= CollectionDrop.new(Kaminari::PaginatableArray.new)
 
         current = context["current_page"].to_i == 0 ? 1 : context["current_page"].to_i
-        paged_collection = collection.collection.page(current).per(@page_size)
+        scope   = collection.send(:paginate, current, @page_size)
 
         paginator = {
-          total:      total_count(paged_collection),
-          last:       total_count(paged_collection) - 1,
-          pages:      paged_collection.total_pages, # should be after total
-          size:       paged_collection.limit_value,
-          offset:     paged_collection.respond_to?(:offset_value) ? paged_collection.offset_value : paged_collection.offset,
+          total:      total_count(scope),
+          last:       total_count(scope) - 1,
+          pages:      scope.collection.total_pages, # should be after total
+          size:       scope.collection.limit_value,
+          offset:     scope.collection.respond_to?(:offset_value) ? scope.collection.offset_value : scope.collection.offset,
           first:      1,
           page:       current,
           previous:   nil,
           next:       nil,
           parts:      [],
-          collection: collection.class.new(paged_collection),
+          collection: scope,
         }
 
         path         = context["path"]
         other_params = context["get_params"]
 
         has_prev_page = (paginator[:page] - 1) >= 1
-        has_next_page = (paginator[:page] + 1) <= paged_collection.total_pages
+        has_next_page = (paginator[:page] + 1) <= scope.collection.total_pages
 
         previous_text = ShoperbLiquid.config.translator.translate("navigation.previous", locale: context.registers[:locale])
         next_text = ShoperbLiquid.config.translator.translate("navigation.next", locale: context.registers[:locale])
@@ -105,8 +105,8 @@ module ShoperbLiquid
 
     private
 
-    def total_count(pure_col)
-      @total_count||=pure_col.total_count
+    def total_count(scope)
+      @total_count||=scope.collection.total_count
     end
 
     def window_size
