@@ -39,6 +39,10 @@ module ShoperbLiquid
       money.to_i
     end
 
+    def num_with_2_meaning_nums(money)
+      "%05.2f" % money
+    end
+
     def weight_with_unit(weight, precision=nil)
       return if weight.nil?
 
