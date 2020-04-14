@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "liquid"
-require "kaminari"
+require "pagy"
 require "active_support/all"
 require "shoperb_liquid/configuration"
 require "shoperb_liquid/registers"

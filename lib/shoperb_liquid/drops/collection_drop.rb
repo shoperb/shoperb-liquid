@@ -2,6 +2,8 @@
 
 module ShoperbLiquid
   class CollectionDrop < Liquid::Drop
+    include Pagy::Backend
+
     attr_reader :collection
 
     def initialize(collection=nil)
@@ -73,7 +75,16 @@ module ShoperbLiquid
     protected
 
     def paginate(page, per_page)
-      self.class.new(collection.page(page).per(per_page))
+      pagy, items = if (collection.respond_to?(:paginate))
+        collection.paginate(page, per_page)
+      else
+        loc_coll = collection.dup
+        # support for shoperb website when it tries not to load all data at once
+        loc_coll = loc_coll.unscope(:limit,:offset) if loc_coll.respond_to?(:unscope)
+        pagy(loc_coll, items: per_page, page: page)
+      end
+
+      return pagy, self.class.new(items)
     end
 
     def limit_value

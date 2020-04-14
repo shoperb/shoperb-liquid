@@ -43,17 +43,17 @@ module ShoperbLiquid
 
       context.stack do
         collection = context[@collection_name]
-        collection ||= CollectionDrop.new(Kaminari::PaginatableArray.new)
+        collection ||= CollectionDrop.new(Product.none)
 
-        current = context["current_page"].to_i == 0 ? 1 : context["current_page"].to_i
-        scope   = collection.send(:paginate, current, @page_size)
+        current    = context["current_page"].to_i == 0 ? 1 : context["current_page"].to_i
+        pagy,scope = collection.send(:paginate, current, @page_size)
 
         paginator = {
-          total:      total_count(scope),
-          last:       total_count(scope) - 1,
-          pages:      scope.collection.total_pages, # should be after total
-          size:       scope.collection.limit_value,
-          offset:     scope.collection.respond_to?(:offset_value) ? scope.collection.offset_value : scope.collection.offset,
+          total:      pagy.count,
+          last:       pagy.count - 1,
+          pages:      pagy.pages,
+          size:       pagy.items,
+          offset:     pagy.offset,
           first:      1,
           page:       current,
           previous:   nil,
@@ -66,7 +66,7 @@ module ShoperbLiquid
         other_params = context["get_params"]
 
         has_prev_page = (paginator[:page] - 1) >= 1
-        has_next_page = (paginator[:page] + 1) <= scope.collection.total_pages
+        has_next_page = (paginator[:page] + 1) <= pagy.pages
 
         previous_text = ShoperbLiquid.config.translator.translate("navigation.previous", locale: context.registers[:locale])
         next_text = ShoperbLiquid.config.translator.translate("navigation.next", locale: context.registers[:locale])
@@ -104,10 +104,6 @@ module ShoperbLiquid
     end
 
     private
-
-    def total_count(scope)
-      @total_count||=scope.collection.total_count
-    end
 
     def window_size
       @attributes["window_size"]

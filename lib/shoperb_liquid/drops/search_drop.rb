@@ -13,7 +13,6 @@ module ShoperbLiquid
       search_size &&= search_size.to_i
 
       record.paginate(page: page, per: search_size)
-      self
     end
 
     def performed
