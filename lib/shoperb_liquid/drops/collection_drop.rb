@@ -21,7 +21,7 @@ module ShoperbLiquid
     end
 
     def count
-      collection.count
+      collection.size
     end
 
     def size
