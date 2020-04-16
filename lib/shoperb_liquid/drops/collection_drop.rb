@@ -77,6 +77,12 @@ module ShoperbLiquid
     def paginate(page, per_page)
       pagy, items = if (collection.respond_to?(:paginate))
         collection.paginate(page, per_page)
+
+      elsif collect.is_a?(Array)
+        # copy of pagy/extras/array
+        pagy = Pagy.new(count: collection.size,  page:  page, items: per_page)
+        [pagy, collection[pagy.offset, pagy.items]]
+
       else
         loc_coll = collection.dup
         # support for shoperb website when it tries not to load all data at once
