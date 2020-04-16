@@ -78,7 +78,7 @@ module ShoperbLiquid
       pagy, items = if (collection.respond_to?(:paginate))
         collection.paginate(page, per_page)
 
-      elsif collect.is_a?(Array)
+      elsif collection.is_a?(Array)
         # copy of pagy/extras/array
         pagy = Pagy.new(count: collection.size,  page:  page, items: per_page)
         [pagy, collection[pagy.offset, pagy.items]]
