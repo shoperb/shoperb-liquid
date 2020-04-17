@@ -32,7 +32,7 @@ module ShoperbLiquid
         nodelist << super(context)
         nodelist << %(</form>)
 
-        nodelist.join("<br />")
+        nodelist.join
       end
     end
 
