@@ -61,6 +61,10 @@ module ShoperbLiquid
     def customer_accounts
       record.customer_accounts
     end
+    
+    def customer_accounts?
+      record.customer_accounts != "disabled"
+    end
 
     def account_types
       record.account_types
