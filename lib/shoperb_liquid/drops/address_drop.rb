@@ -94,6 +94,10 @@ module ShoperbLiquid
       record.zip
     end
 
+    def vat_number
+      record.vat_number
+    end
+
     # return only for address customer
     # if have id then showing edit/update path
     # if id not present, then create path.
