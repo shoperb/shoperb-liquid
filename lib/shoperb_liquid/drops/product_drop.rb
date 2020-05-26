@@ -152,6 +152,10 @@ module ShoperbLiquid
       ProductsDrop.new(record.similar)
     end
 
+    def related_products
+      ProductsDrop.new(record.related_products)
+    end
+
     def others_in_category
       return ProductsDrop.new(Product.none) unless record.category
 
