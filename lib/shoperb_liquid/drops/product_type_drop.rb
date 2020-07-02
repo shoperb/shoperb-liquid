@@ -17,5 +17,9 @@ module ShoperbLiquid
     def handle
       record.handle
     end
+
+    def products
+      ProductsDrop.new(record.products.includes(:variants))
+    end
   end
 end
