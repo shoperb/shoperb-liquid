@@ -55,6 +55,14 @@ module ShoperbLiquid
       record.available?(:warehouse)
     end
 
+    def purchased?
+      if current_customer
+        current_customer.purchased_variant?(record)
+      else
+        false
+      end
+    end
+
     def sku
       record.sku
     end
