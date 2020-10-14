@@ -50,6 +50,9 @@ module ShoperbLiquid
     def market_price
       record.compare_at
     end
+    def gift_card_value
+      record.gift_card_value
+    end
 
     def available?
       record.available?(:warehouse)
@@ -113,7 +116,8 @@ module ShoperbLiquid
 
     def json
       h = record.as_json(only: [:id, :sku, :name, :weight, :width, :height, :depth, :price])
-      h = h.merge(
+      h[:gift_card_value] if record.gift_card_value
+      h.merge!(
         current_price: current_price,
         has_discount: discount?,
         discount_price: discount_price,
