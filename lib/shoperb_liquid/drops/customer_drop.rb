@@ -74,6 +74,7 @@ module ShoperbLiquid
       record.vat_number
     end
 
+    # @retturn Integer number of items user hasn't returned
     def not_returned_items
       record.not_returned_items
     end
