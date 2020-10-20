@@ -74,6 +74,10 @@ module ShoperbLiquid
       record.vat_number
     end
 
+    def not_returned_items
+      record.not_returned_items
+    end
+
     def active_subscriptions
       CollectionDrop.new(record.subscriptions.active)
     end
