@@ -152,6 +152,7 @@ module ShoperbLiquid
         height: height,
         depth: depth,
         price: price,
+        gift_card_value: gift_card_value,
         stock: stock,
         discount_price: discount_price,
         discount: discount?,
