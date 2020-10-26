@@ -36,6 +36,10 @@ module ShoperbLiquid
       record.deleted?
     end
 
+    def state
+      record.state
+    end
+
     def delete_url
       controller.store_account_delete_subscription_path(id)
     end
