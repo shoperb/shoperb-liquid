@@ -19,6 +19,7 @@ module ShoperbLiquid
   class PaginateTag < ::Liquid::Block
     Syntax = /(#{::Liquid::QuotedFragment})\s*(by\s*(\w+))?/
     DEFAULT_PER = 20
+    MAXIMUM_PER = 100
 
     def initialize(tag_name, markup, tokens)
       super
@@ -43,7 +44,8 @@ module ShoperbLiquid
       return @get_page_number if @get_page_number
 
       @get_page_number = per.to_i
-      @get_page_number = @context.scopes.last[per] || DEFAULT_PER if @get_page_number == 0
+      @get_page_number = (@context.scopes.last[per] || DEFAULT_PER).to_i if @get_page_number == 0
+      @get_page_number = MAXIMUM_PER if @get_page_number > MAXIMUM_PER
 
       @get_page_number
     end
