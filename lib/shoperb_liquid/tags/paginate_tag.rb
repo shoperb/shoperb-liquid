@@ -17,14 +17,15 @@ module ShoperbLiquid
   #  {% endpaginate %}
   #
   class PaginateTag < ::Liquid::Block
-    Syntax = /(#{::Liquid::QuotedFragment})\s*(by\s*(\d+))?/
+    Syntax = /(#{::Liquid::QuotedFragment})\s*(by\s*(\w+))?/
+    DEFAULT_PER = 20
 
     def initialize(tag_name, markup, tokens)
       super
 
       if markup =~ Syntax
         @collection_name = $1
-        @page_size       = $2 ? $3.to_i : 20
+        @page_size       = $2 ? $3 : DEFAULT_PER # save number hardcoded or variable name
 
         @attributes = { "window_size" => 3 }
 
@@ -38,6 +39,16 @@ module ShoperbLiquid
       super
     end
 
+    def get_page_number(per)
+      return @get_page_number if @get_page_number
+
+      @get_page_number = per.to_i
+      @get_page_number = @context.scopes.last[per] || DEFAULT_PER if @get_page_number == 0
+
+      @get_page_number
+    end
+
+    # @page_size - is number or reference
     def render(context)
       @context = context
 
@@ -46,7 +57,7 @@ module ShoperbLiquid
         collection ||= CollectionDrop.new(Product.none)
 
         current    = context["current_page"].to_i == 0 ? 1 : context["current_page"].to_i
-        pagy,scope = collection.send(:paginate, current, @page_size)
+        pagy,scope = collection.send(:paginate, current, get_page_number(@page_size))
 
         paginator = {
           total:      pagy.count,
