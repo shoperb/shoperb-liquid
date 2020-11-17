@@ -94,6 +94,15 @@ module ShoperbLiquid
       record.digital
     end
 
+    def number_in_package
+      record.num_in_pack
+    end
+    alias :number_in_package :num_in_pack
+
+    def unit_price
+      active_price/number_in_package
+    end
+
     def url
       record.url
     end
