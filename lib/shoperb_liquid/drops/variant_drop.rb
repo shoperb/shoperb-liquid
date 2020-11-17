@@ -100,8 +100,8 @@ module ShoperbLiquid
     alias :num_in_pack :number_in_package
 
     def unit_price
-      return active_price if number_in_package.to_d.eql?(0)
-      active_price/number_in_package
+      return current_price if number_in_package.to_d.eql?(0)
+      current_price/number_in_package
     end
 
     def url
