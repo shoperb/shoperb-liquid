@@ -97,7 +97,7 @@ module ShoperbLiquid
     def number_in_package
       record.num_in_pack
     end
-    alias :number_in_package :num_in_pack
+    alias :num_in_pack :number_in_package
 
     def unit_price
       return active_price if number_in_package.to_d.eql?(0)
