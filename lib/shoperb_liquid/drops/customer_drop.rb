@@ -47,7 +47,7 @@ module ShoperbLiquid
     end
 
     def orders
-      CollectionDrop.new(record.orders.sorted)
+      OrdersDrop.new(record.orders.sorted)
     end
 
     def logged_in?
