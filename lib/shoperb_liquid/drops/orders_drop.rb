@@ -7,7 +7,8 @@ module ShoperbLiquid
     end
 
     def had_subscription
-      @collection.had_subscription
+      @collection = @collection.had_subscription
+      self
     end
   end
 end
