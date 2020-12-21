@@ -78,9 +78,14 @@ module ShoperbLiquid
     def digital?
       record.variant.digital?
     end
-    
+
     def by_subscription
       record.by_subscription
+    end
+
+
+    def item_original_id
+      record.item_original_id
     end
 
     def vendor
