@@ -39,6 +39,10 @@ module ShoperbLiquid
     def state
       record.state
     end
+    
+    def gift_card_code
+      record.gift_card_code
+    end
 
     def delete_url
       controller.store_account_delete_subscription_path(id)
