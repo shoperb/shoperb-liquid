@@ -28,7 +28,8 @@ module ShoperbLiquid
       @parse_context = options # mark for parser
       @attributes = {}
       markup.scan(Liquid::TagAttributes) do |key, value|
-        @attributes[key] = parse_expression(value)
+        # define liquid 4 or 5. parse_expression is for 5
+        @attributes[key] = defined?(parse_expression) ? parse_expression(value) : Liquid::Expression.parse(value)
       end
 
       @attributes["what"] ||= FULL
