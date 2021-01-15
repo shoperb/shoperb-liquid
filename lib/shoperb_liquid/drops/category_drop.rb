@@ -93,7 +93,7 @@ module ShoperbLiquid
         has_children:   children?,
         url:            url,
       }
-      out[:children] = record.children.to_a.map{|e| e.as_json(incl_children: incl_children)}
+      out[:children] = record.children.to_a.map{|e| e.as_json(incl_children: incl_children)} if incl_children
       out
     end
 
