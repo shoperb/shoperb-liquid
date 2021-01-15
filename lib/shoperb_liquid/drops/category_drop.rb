@@ -18,6 +18,14 @@ module ShoperbLiquid
       record.permalink
     end
 
+    def permalink
+      record.permalink
+    end
+
+    def description
+      record.description
+    end
+
     def parent
       record.parent
     end
@@ -72,6 +80,19 @@ module ShoperbLiquid
 
     def products_with_children
       ProductsDrop.new(record.products_for_self_and_children)
+    end
+
+    def as_json
+      {
+        id:             id,
+        name:           name,
+        permalink:      permalink,
+        handle:         handle,
+        description:    description,
+        products_count: products_with_children.count,
+        has_children:   children?,
+        url:            url,
+      }
     end
 
     private
