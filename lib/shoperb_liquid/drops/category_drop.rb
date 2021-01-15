@@ -82,8 +82,8 @@ module ShoperbLiquid
       ProductsDrop.new(record.products_for_self_and_children)
     end
 
-    def as_json
-      {
+    def as_json(incl_children: false)
+      out={
         id:             id,
         name:           name,
         permalink:      permalink,
@@ -93,6 +93,8 @@ module ShoperbLiquid
         has_children:   children?,
         url:            url,
       }
+      out[:children] = record.children.to_a.map{|e| e.as_json(incl_children: incl_children)}
+      out
     end
 
     private
