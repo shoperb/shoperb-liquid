@@ -113,11 +113,11 @@ module ShoperbLiquid
     end
 
     def product_url
-      ProductDrop.new(record.product).url
+      product.url
     end
 
     def product_url_full
-      ProductDrop.new(record.product).url_full
+      product.url_full
     end
 
     def image
