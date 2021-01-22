@@ -111,5 +111,11 @@ module ShoperbLiquid
         end
       end
     end
+
+    def delete_url
+      if record&.type == "AddressCustomer" && id
+        controller.delete_store_address_path(id)
+      end
+    end
   end
 end
