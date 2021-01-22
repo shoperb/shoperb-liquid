@@ -100,6 +100,10 @@ module ShoperbLiquid
       record.product_id
     end
 
+    def product
+      ProductDrop.new(record.product)
+    end
+
     def variant_id
       record.variant_id
     end
