@@ -108,6 +108,10 @@ module ShoperbLiquid
       record.variant_id
     end
 
+    def brand
+      VendorDrop.new(record.brand)
+    end
+
     def product_name
       record.product&.name
     end
