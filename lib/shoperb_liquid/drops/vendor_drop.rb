@@ -71,7 +71,7 @@ module ShoperbLiquid
     end
 
     def url
-      controller.store_brand_path(record)
+      controller.store_brand_path(record) if record.id
     end
   end
 end
