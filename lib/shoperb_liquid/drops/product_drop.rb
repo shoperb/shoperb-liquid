@@ -117,6 +117,10 @@ module ShoperbLiquid
     end
 
     def vendor
+      brand
+    end
+
+    def brand
       VendorDrop.new(record.vendor)
     end
 
