@@ -167,6 +167,10 @@ module ShoperbLiquid
         controller.store_addresses_path
       end
 
+      def store_order_returns_path
+        controller.store_order_returns_path
+      end
+
       def reviews
         controller.store_reviews_path
       end
