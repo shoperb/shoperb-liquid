@@ -74,6 +74,11 @@ module ShoperbLiquid
       record.vat_number
     end
 
+    # returns a hash with order id and order with not returned items
+    def order_returns
+      record.order_returns
+    end
+
     # @retturn Integer number of items user hasn't returned
     def not_returned_items
       record.not_returned_items
