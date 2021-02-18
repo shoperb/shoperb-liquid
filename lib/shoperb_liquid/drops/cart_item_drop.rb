@@ -8,7 +8,7 @@ module ShoperbLiquid
       @record.cart.customer = current_customer
       @record.variant.customer = current_customer
     rescue Exception => e
-      binding.pry
+      binding.irb
     end
 
     def id
