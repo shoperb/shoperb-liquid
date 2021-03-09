@@ -6,6 +6,10 @@ module ShoperbLiquid
       "#" + record.number
     end
 
+    def id
+      record.id
+    end
+
     def number
       record.number
     end
