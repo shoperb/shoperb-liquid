@@ -107,6 +107,10 @@ module ShoperbLiquid
       value.to_i * times.to_i
     end
 
+    def decimal_times(value, times)
+      value.to_d * times.to_d
+    end
+
     def random(value, limit=nil)
       return value unless limit
       value.to_a.sample limit
