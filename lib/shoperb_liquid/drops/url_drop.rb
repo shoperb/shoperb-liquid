@@ -66,6 +66,10 @@ module ShoperbLiquid
         controller.store_blog_posts_path
       end
 
+      def brands
+      end
+      alias :vendors :brands
+
       def current_url
         request.try(:url)
       end
