@@ -67,6 +67,7 @@ module ShoperbLiquid
       end
 
       def brands
+        controller.store_brands_path
       end
       alias :vendors :brands
 
