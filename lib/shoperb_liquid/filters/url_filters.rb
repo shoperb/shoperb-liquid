@@ -29,7 +29,9 @@ module ShoperbLiquid
     end
 
     def url_to_locale(locale)
-      url = @context.registers[:controller].url_for(locale: locale)
+      pars = {locale: locale}
+      pars[:query] =  @context["params"]["query"] if @context["params"]["query"].present? # need for search
+      @context.registers[:controller].url_for(pars)
     end
 
     def link_to_root(text)
