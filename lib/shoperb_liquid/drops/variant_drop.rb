@@ -177,6 +177,8 @@ module ShoperbLiquid
         current_price: current_price,
         compare_at: compare_at,
         available: available?,
+        track_inventory: track_inventory?,
+        allow_backorder: allow_backorder?,
         digital: digital,
         url: url,
         image: image&.url
