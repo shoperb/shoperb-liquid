@@ -78,6 +78,10 @@ module ShoperbLiquid
       record.sku
     end
 
+    def barcode
+      record.barcode
+    end
+
     def stock
       record.track_inventory? ? record.stock(Cart.new) : nil
     end
