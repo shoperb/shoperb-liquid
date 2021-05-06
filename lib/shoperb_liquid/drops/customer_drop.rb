@@ -74,9 +74,18 @@ module ShoperbLiquid
       record.vat_number
     end
 
+    def existing_order_returns
+      record.existing_order_returns
+    end
+
     # returns a hash with order id and order with not returned items
+    def new_order_returns
+      record.new_order_returns
+    end
+
     def order_returns
-      record.order_returns
+      puts "Deprecation Note: Please use new_order_returns method"
+      record.new_order_returns
     end
 
     # @retturn Integer number of items user hasn't returned
