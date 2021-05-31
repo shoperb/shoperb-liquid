@@ -74,7 +74,7 @@ module ShoperbLiquid
     def date(value, formatting)
       return unless value
 
-      value = Date.today if value.eql?("now")
+      value = Time.now if value.eql?("now")
       date  = value.kind_of?(String) ? Date.parse(value) : value
       I18n.l(date, format: formatting)
     end
