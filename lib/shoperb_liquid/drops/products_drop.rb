@@ -19,7 +19,6 @@ module ShoperbLiquid
                           collection.reorder("").by_name(matches[2])
                         when "price"
                           collection.reorder("").by_price(matches[2])
-                          collection.reorder("").by_name(matches[2])
                         when "product_type"
                           collection.reorder("").by_product_type(matches[2])
                         else
