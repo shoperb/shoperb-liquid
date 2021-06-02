@@ -21,8 +21,9 @@ module ShoperbLiquid
       ShoperbLiquid.config.routes
     end
 
+    # if email sets his own customer then use that one
     def current_customer
-      controller.current_customer
+      @context.key?("customer") ? @context["customer"] : controller.current_customer
     end
 
     def controller
