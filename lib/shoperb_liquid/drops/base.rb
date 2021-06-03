@@ -23,7 +23,13 @@ module ShoperbLiquid
 
     # if email sets his own customer then use that one
     def current_customer
-      @context.key?("customer") ? @context["customer"] : controller.current_customer
+      if @context.key?("customer")
+        @context["customer"]
+      elsif @context.environments[0]&.has_key?("customer")
+        @context.environments[0]["customer"]
+      else
+        controller.current_customer
+      end
     end
 
     def controller
