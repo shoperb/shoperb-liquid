@@ -9,18 +9,23 @@ module ShoperbLiquid
     end
 
     def liquid_method_missing(method, *args)
-      if matches = method.to_s.match(/order_by_(.*)_(asc|desc)/i)
-        @collection = case matches[1]
+      if matches = method.to_s.match(/(add_)?order_by_(.*)_(asc|desc)/i)
+        order = matches[3]
+        rel   = collection
+        rel   = rel.reorder("") unless matches[1] # remove sort if "add_" not added
+        @collection = case matches[2]
                         when "created"
-                          collection.reorder("").by_created(matches[2])
+                          rel.by_created(order)
                         when "updated"
-                          collection.reorder("").by_updated(matches[2])
+                          rel.by_updated(order)
                         when "name"
-                          collection.reorder("").by_name(matches[2])
+                          rel.by_name(order)
                         when "price"
-                          collection.reorder("").by_price(matches[2])
+                          rel.by_price(order)
                         when "product_type"
-                          collection.reorder("").by_product_type(matches[2])
+                          rel.by_product_type(order)
+                        when "handle"
+                          rel.by_handle(order)
                         else
                           collection
                       end and self
