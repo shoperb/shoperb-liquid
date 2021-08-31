@@ -24,6 +24,8 @@ module ShoperbLiquid
                           rel.by_price(order)
                         when "product_type"
                           rel.by_product_type(order)
+                        when "tags"
+                          rel.by_tags(order)
                         when "handle"
                           rel.by_handle(order)
                         else
