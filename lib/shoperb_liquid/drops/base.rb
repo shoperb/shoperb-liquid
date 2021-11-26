@@ -17,6 +17,12 @@ module ShoperbLiquid
 
     protected
 
+    def try_int(num)
+      # the fastest way to compare, through float
+      int = num.to_i
+      int.to_f == num.to_f ? int : num
+    end
+
     def routes
       ShoperbLiquid.config.routes
     end

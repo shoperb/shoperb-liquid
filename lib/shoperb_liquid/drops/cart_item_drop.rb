@@ -24,7 +24,7 @@ module ShoperbLiquid
     end
 
     def quantity
-      record.amount
+      try_int(record.amount)
     end
 
     def stock

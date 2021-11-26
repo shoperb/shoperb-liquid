@@ -11,10 +11,18 @@ module ShoperbLiquid
     end
 
     def quantity
-      record.amount
+      try_int(record.amount)
     end
 
     alias_method :qty, :quantity
+
+    def amount_step
+      record.amount_step
+    end
+
+    def amount_step_unit
+      record.amount_step_unit
+    end
 
     def sku
       record.sku

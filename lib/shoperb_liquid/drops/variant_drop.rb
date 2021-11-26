@@ -19,6 +19,14 @@ module ShoperbLiquid
       record.price
     end
 
+    def amount_step
+      record.amount_step
+    end
+
+    def amount_step_unit
+      record.amount_step_unit
+    end
+
     def discount_price
       # active price includes discount
       record.active_price if discount?
