@@ -58,6 +58,10 @@ module ShoperbLiquid
       ProductsDrop.new(record.recommended_products)
     end
 
+    def customer_groups
+      record.customer_groups
+    end
+
     def company?
       record.company?
     end
