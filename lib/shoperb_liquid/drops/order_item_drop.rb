@@ -16,6 +16,10 @@ module ShoperbLiquid
 
     alias_method :qty, :quantity
 
+    def order
+      OrderDrop.new(record.order)
+    end
+
     def amount_step
       record.amount_step
     end
