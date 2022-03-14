@@ -8,6 +8,10 @@ module ShoperbLiquid
       )
     end
 
+    def find_by_sku(sku)
+      collection.find_by(sku: sku)
+    end
+
     def liquid_method_missing(method, *args)
       if matches = method.to_s.match(/(add_)?order_by_(.*)_(asc|desc)/i)
         order = matches[3]
