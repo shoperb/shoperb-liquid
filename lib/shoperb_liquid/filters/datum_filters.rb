@@ -103,6 +103,10 @@ module ShoperbLiquid
       value.to_i - remove
     end
 
+    def decimal_minus(value, remove)
+      value.to_d - remove.to_d
+    end
+
     # we use default times filter
     # def times(value, times)
     #   value.to_i * times.to_i
