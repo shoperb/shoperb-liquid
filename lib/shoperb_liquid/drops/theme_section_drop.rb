@@ -19,6 +19,10 @@ module ShoperbLiquid
       ThemeSectionSettingsDrop.new(record)
     end
 
+    def updated_at
+      record['updated_at']
+    end
+
     def type
       record["type"]
     end

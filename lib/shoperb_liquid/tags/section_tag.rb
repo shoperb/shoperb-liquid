@@ -38,6 +38,7 @@ module ShoperbLiquid
 
       section_id = context.evaluate(@template_name_expr)
       section_data = settings.data["sections"][section_id]
+      section_data["updated_at"] = Time.now.to_f
       context["section"] = ThemeSectionDrop.new(section_id, section_data)
       # end of new code
 
@@ -92,6 +93,7 @@ module ShoperbLiquid
 
         section_id = context.evaluate(@template_name_expr)
         section_data = settings.data["sections"][section_id]
+        section_data["updated_at"] = Time.now.to_f
         context["section"] = ThemeSectionDrop.new(section_id, section_data)
 
         super
