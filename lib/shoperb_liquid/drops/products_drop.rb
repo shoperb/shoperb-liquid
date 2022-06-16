@@ -9,7 +9,7 @@ module ShoperbLiquid
     end
 
     def random
-      collection.random
+      ProductDrop.new(collection.random)
     end
 
 
