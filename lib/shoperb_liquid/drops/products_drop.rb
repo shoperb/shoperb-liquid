@@ -8,6 +8,11 @@ module ShoperbLiquid
       )
     end
 
+    def random
+      collection.random
+    end
+
+
     def liquid_method_missing(method, *args)
       if matches = method.to_s.match(/(add_)?order_by_(.*)_(asc|desc)/i)
         order = matches[3]
