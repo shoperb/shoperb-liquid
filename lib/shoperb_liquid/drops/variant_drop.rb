@@ -91,7 +91,7 @@ module ShoperbLiquid
     end
 
     def stock
-      record.track_inventory? ? record.stock(Cart.new) : nil
+      record.track_inventory? ? try_int(record.stock(Cart.new)) : nil
     end
 
     def weight
