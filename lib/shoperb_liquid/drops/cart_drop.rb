@@ -16,7 +16,7 @@ module ShoperbLiquid
     end
 
     def quantity
-      record.items.sum(:amount)
+      try_int(record.items.sum(:amount))
     end
 
     def requires_shipping?
