@@ -15,6 +15,10 @@ module ShoperbLiquid
       record.name
     end
 
+    def permalink
+      record.permalink
+    end
+
     def handle
       record.permalink
     end

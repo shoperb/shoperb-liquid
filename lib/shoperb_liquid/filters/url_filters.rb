@@ -31,7 +31,12 @@ module ShoperbLiquid
     def url_to_locale(locale)
       pars = {locale: locale}
       pars[:query] =  @context["params"]["query"] if @context["params"]["query"].present? # need for search
-      @context.registers[:controller].url_for(pars)
+
+      controller = @context.registers[:controller]
+      if @context["params"]["id"] && (obj = @context["@object"]) && @context["@object"].respond_to?(:permalink)
+        pars["id"] = in_locale(locale) {obj.record.to_param}
+      end
+      controller.url_for(pars)
     end
 
     def link_to_root(text)
@@ -40,6 +45,16 @@ module ShoperbLiquid
 
     def link_to(text, url, title=nil)
       super text, url, title: title
+    end
+
+    private
+    def in_locale(local_locale)
+      klass = ::Shoperb::Theme::Editor::Translations
+      old = klass.locale
+      klass.locale = local_locale
+      resp = yield
+      klass.locale = old
+      resp
     end
   end
 end
