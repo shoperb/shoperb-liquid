@@ -33,7 +33,7 @@ module ShoperbLiquid
       pars[:query] =  @context["params"]["query"] if @context["params"]["query"].present? # need for search
 
       controller = @context.registers[:controller]
-      if @context["params"]["id"] && (obj = @context["@object"]) && @context["@object"].respond_to?(:permalink)
+      if @context["params"]["id"] && (obj = @context["object"]) && obj.respond_to?(:permalink)
         pars["id"] = in_locale(locale) {obj.record.to_param}
       end
       controller.url_for(pars)
