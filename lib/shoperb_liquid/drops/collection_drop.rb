@@ -68,8 +68,8 @@ module ShoperbLiquid
       to_a.collect(&key.to_sym)
     end
 
-    def order_by_id_asc
-      collection.order_by_id_asc
+    def sorted
+      collection.sorted
     end
 
     def to_s
