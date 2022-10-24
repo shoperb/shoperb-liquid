@@ -69,7 +69,8 @@ module ShoperbLiquid
     end
 
     def sorted
-      collection.sorted
+      @collection = collection.sorted
+      self
     end
 
     def to_s
