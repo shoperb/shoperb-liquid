@@ -44,6 +44,10 @@ module ShoperbLiquid
       collection.empty?
     end
 
+    def none?
+      empty?
+    end
+
     def first
       collection.first.try(:to_liquid)
     end
