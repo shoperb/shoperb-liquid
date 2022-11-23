@@ -33,7 +33,7 @@ module ShoperbLiquid
     end
 
     def attributes
-      CollectionDrop.new(record.item_attributes)
+      OrderItemAttributesDrop.new(record.item_attributes)
     end
 
     def weight
