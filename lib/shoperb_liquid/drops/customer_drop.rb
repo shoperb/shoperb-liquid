@@ -50,6 +50,10 @@ module ShoperbLiquid
       OrdersDrop.new(record.orders.sorted)
     end
 
+    def customer_credits
+      CustomerCreditsDrop.new(record.orders.sorted)
+    end
+
     def logged_in?
       record && record.id.present?
     end
