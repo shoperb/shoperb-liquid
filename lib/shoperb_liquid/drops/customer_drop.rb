@@ -51,7 +51,7 @@ module ShoperbLiquid
     end
 
     def customer_credits
-      CustomerCreditsDrop.new(record.orders.sorted)
+      CustomerCreditsDrop.new(record.credits)
     end
 
     def logged_in?
