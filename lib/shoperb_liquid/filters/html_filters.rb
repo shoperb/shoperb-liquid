@@ -18,9 +18,9 @@ module ShoperbLiquid
         links << (if part["is_link"]
                     "<a class=\"page\" href=\"#{part["url"]}\">#{part["title"]}</a>"
                   elsif part["current"]
-                    "<span class=\"page gap\">#{part["title"]}</span>"
-                  else
                     "<span class=\"page current\">#{part["title"]}</span>"
+                  else
+                    "<span class=\"page gap\">#{part["title"]}</span>"
                   end)
       end
 
