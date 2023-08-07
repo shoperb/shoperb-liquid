@@ -12,7 +12,7 @@ module ShoperbLiquid
       meths = self.class.invokable_methods - Set["to_liquid","record"]
       meths.delete_if{|meth| meth.end_with?("_url")}
       json = meths.each_with_object({}){|meth,h| h[meth] = (public_send(meth).to_s rescue "")}.to_json
-      "#{self.class}(#{record.id})#{json}"
+      "#{self.class}(#{record.respond_to?(:id) ? record.id : (id rescue '')})#{json}"
     end
 
     def custom_fields
