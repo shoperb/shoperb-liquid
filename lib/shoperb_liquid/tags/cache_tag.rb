@@ -5,7 +5,7 @@ module ShoperbLiquid
   class CacheTag < ::Liquid::Block
     def initialize(tag_name, markup, tokens)
       super
-      @attrs = markup.split(/[, .]/).select(&:present?).map(&:strip)
+      @attrs = markup.split(/[, ]/).select(&:present?).map(&:strip)
     end
 
     def render(context)
