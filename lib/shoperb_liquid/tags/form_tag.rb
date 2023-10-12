@@ -41,7 +41,7 @@ module ShoperbLiquid
       controller = context.registers[:controller]
       value = controller.send(:form_authenticity_token)
 
-      %(<input type="hidden" name="authenticity_token" value="#{value}"> <input autocomplete="nope" type="search" name="shoperb_first_last_name_1" value="" style="color: black; display: none;" />)
+      %(<input type="hidden" name="authenticity_token" value="#{value}"> <input autocomplete="nope" type="search" tabindex="-1" name="shoperb_first_last_name_1" value="" style="color: black; display: none;" />)
     end
   end
 end
