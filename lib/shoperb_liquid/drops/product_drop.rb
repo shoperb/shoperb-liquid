@@ -8,7 +8,7 @@ module ShoperbLiquid
     end
 
     def initialize(record)
-      @record = record || Product.new
+      @record = record || ::OpenStruct.new
     end
 
     def id
