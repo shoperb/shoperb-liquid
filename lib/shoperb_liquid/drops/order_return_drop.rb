@@ -16,7 +16,7 @@ module ShoperbLiquid
     end
     
     def items
-      CollectionDrop.new(record.items.all)
+      CollectionDrop.new(record.items)
     end
     
     def parcel
