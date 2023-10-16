@@ -4,7 +4,11 @@ module ShoperbLiquid
   class ProductDrop < Base
     def context=(context)
       super(context)
-      record.customer = current_customer if record
+      record.customer = current_customer
+    end
+
+    def initialize(record)
+      @record = record || Product.new
     end
 
     def id
