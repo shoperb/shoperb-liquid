@@ -40,6 +40,7 @@ module ShoperbLiquid
           menus:         MenusDrop.new,
           pages:         PagesDrop.new,
           blog_posts:    CollectionDrop.new(BlogPost.active),
+          blog_categories: CollectionDrop.new(BlogCategory.active),
           countries:     CollectionDrop.new(Country.all),
           vendors:       VendorsDrop.new,
           brands:        VendorsDrop.new,

@@ -13,6 +13,10 @@ module ShoperbLiquid
     def handle
       record.handle
     end
+
+    def category
+      record.category
+    end
     
     def image
       ImageDrop.new(record.image) if record.image
