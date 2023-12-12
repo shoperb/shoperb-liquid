@@ -56,6 +56,10 @@ module ShoperbLiquid
       record.price
     end
 
+    def pkg_deposit
+      record.pkg_deposit
+    end
+
     def subtotal
       record.total_without_taxes
     end

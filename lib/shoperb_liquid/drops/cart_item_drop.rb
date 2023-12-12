@@ -39,6 +39,10 @@ module ShoperbLiquid
       record.price
     end
 
+    def pkg_deposit
+      record.variant.pkg_deposit if record.pkg_deposit.present?
+    end
+
     def discount_price
       record.variant.active_price if record.variant.discount.present?
     end
