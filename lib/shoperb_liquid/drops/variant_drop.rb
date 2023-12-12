@@ -58,6 +58,11 @@ module ShoperbLiquid
     def market_price
       record.compare_at
     end
+
+    def pkg_deposit
+      record.pkg_deposit
+    end
+    
     def gift_card_value
       record.gift_card_value
     end
@@ -188,6 +193,7 @@ module ShoperbLiquid
         discount: discount?,
         current_price: current_price,
         compare_at: compare_at,
+        pkg_deposit: pkg_deposit,
         available: available?,
         track_inventory: track_inventory?,
         allow_backorder: allow_backorder?,
