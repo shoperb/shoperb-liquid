@@ -10,6 +10,7 @@ module ShoperbLiquid
     MODELS = [
       :Address,
       :BlogPost,
+      :BlogCategory,
       :Cart,
       :CartItem,
       :Category,
