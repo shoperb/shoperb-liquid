@@ -8,6 +8,15 @@ module ShoperbLiquid
     def order_item
       OrderItemDrop.new(record.order_item)
     end
+
+    def amount
+      try_int(record.amount)
+    end
+
+    def entities
+      CollectionDrop.new(record.entities)
+    end
+
     def quantity_sent
       try_int(record.quantity_sent)
     end
