@@ -5,6 +5,11 @@ module ShoperbLiquid
     def id
       record.id
     end
+
+    def labeled_number
+      record.labeled_number
+    end
+
     def delivery_date
       record.delivery_date
     end
