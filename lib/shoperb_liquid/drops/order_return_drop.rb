@@ -22,6 +22,10 @@ module ShoperbLiquid
     def parcel
       record.return_parcel&.to_liquid
     end
+
+    def created_at
+      record.created_at
+    end
     
     def url
       controller.store_order_return_path(id)
