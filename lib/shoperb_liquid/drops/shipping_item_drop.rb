@@ -13,5 +13,9 @@ module ShoperbLiquid
     def amount
       record.amount
     end
+
+    def shipping_date
+      record.created_at
+    end
   end
 end
