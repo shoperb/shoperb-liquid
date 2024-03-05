@@ -2,6 +2,10 @@
 
 module ShoperbLiquid
   class ShippingItemDrop < Base
+    def id
+      record.id
+    end
+    
     def product_name
       record.order_item.product.name
     end
