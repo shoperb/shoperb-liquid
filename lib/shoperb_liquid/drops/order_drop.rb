@@ -114,6 +114,10 @@ module ShoperbLiquid
       CollectionDrop.new(record.items)
     end
 
+    def shipping_items
+      CollectionDrop.new(record.shipping_items)
+    end
+
     def customer
       CustomerDrop.new(record.customer)
     end
