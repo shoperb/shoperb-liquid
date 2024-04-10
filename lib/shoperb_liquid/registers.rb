@@ -37,6 +37,7 @@ module ShoperbLiquid
           meta:          MetaDrop.new(locals.delete(:meta)),
           categories:    CategoriesDrop.new,
           cart:          CartDrop.new(current_cart),
+          carts:         CollectionDrop.new(current_carts.map{|cart| CartDrop.new(cart)}),
           menus:         MenusDrop.new,
           pages:         PagesDrop.new,
           blog_posts:    CollectionDrop.new(BlogPost.active),

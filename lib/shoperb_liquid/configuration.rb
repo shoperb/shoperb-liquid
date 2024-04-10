@@ -101,6 +101,7 @@ module ShoperbLiquid
       PATHS = [
         :store_root_path,
         :store_cart_path,
+        :store_carts_path,
         :store_signup_path,
         :store_login_path,
         :store_logout_path,
@@ -134,6 +135,9 @@ module ShoperbLiquid
         :add_store_cart_path,
         :checkout_store_cart_path,
         :update_store_cart_path,
+        :add_store_multi_cart_path,
+        :checkout_store_multi_cart_path,
+        :update_store_multi_cart_path,
         :store_new_login_path,
         :store_upd_reset_password_path,
         :store_account_subscriptions_path,

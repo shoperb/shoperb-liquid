@@ -128,6 +128,7 @@ Options, provided to the template, are passed by __shoperb_liquid__ gem. However
 * __request__: object
 * __template__: string
 * __current_cart__: object
+* __current_carts__: array
 * __current_customer__: object
 * __current_settings__: hash
 * __ResourceHints__: object (optional)
