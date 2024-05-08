@@ -14,6 +14,10 @@ module ShoperbLiquid
       OrderItemDrop.new(record.order_item)
     end
 
+    def order_item_id
+      OrderItemDrop.new(record.order_item_id)
+    end
+
     def amount
       record.amount
     end
