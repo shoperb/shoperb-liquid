@@ -118,6 +118,10 @@ module ShoperbLiquid
       CollectionDrop.new(record.shipping_items)
     end
 
+    def refunds
+      CollectionDrop.new(record.refunds)
+    end
+
     def customer
       CustomerDrop.new(record.customer)
     end
