@@ -201,6 +201,16 @@ module ShoperbLiquid
       </style>
         )
       end
+
+      def liquid_method_missing(method, *args)
+        if matches = method.to_s.match(/\Aadd_store_multi_cart_path__(.+)/)
+          controller.add_store_multi_cart_path(matches[1])
+        elsif matches = method.to_s.match(/\Acheckout_store_multi_cart_path__(.+)/)
+          controller.checkout_store_multi_cart_path(matches[1])
+        else
+          super(method)
+        end
+      end
     end
   end
 end

@@ -2,6 +2,10 @@
 
 module ShoperbLiquid
   class CartDrop < Base
+    def id
+      record.id
+    end
+
     def total
       record.customer = current_customer
       record.total
@@ -25,6 +29,10 @@ module ShoperbLiquid
 
     def notes
       record.notes
+    end
+
+    def slug
+      record.slug
     end
 
     def items
