@@ -89,14 +89,14 @@ module ShoperbLiquid
 
       elsif collection.is_a?(Array)
         # copy of pagy/extras/array
-        pagy = Pagy.new(count: collection.size,  page:  page, items: per_page)
-        [pagy, collection[pagy.offset, pagy.items]]
+        pagy = Pagy.new(count: collection.size,  page:  page, limit: per_page)
+        [pagy, collection[pagy.offset, pagy.limit]]
 
       else
         loc_coll = collection.dup
         # support for shoperb website when it tries not to load all data at once
         loc_coll = loc_coll.unscope(:limit,:offset) if loc_coll.respond_to?(:unscope)
-        pagy(loc_coll, items: per_page, page: page)
+        pagy(loc_coll, limit: per_page, page: page)
       end
 
       return pagy, self.class.new(items)
