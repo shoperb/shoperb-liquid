@@ -65,7 +65,7 @@ module ShoperbLiquid
           total:      pagy.count,
           last:       pagy.count - 1,
           pages:      pagy.pages,
-          size:       pagy.items,
+          size:       pagy.limit,
           offset:     pagy.offset,
           first:      1,
           page:       current,
