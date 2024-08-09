@@ -103,6 +103,10 @@ module ShoperbLiquid
       value.to_i - remove
     end
 
+    def decimal_plus(value, add)
+      value.to_d + add.to_d
+    end
+
     def decimal_minus(value, remove)
       value.to_d - remove.to_d
     end
