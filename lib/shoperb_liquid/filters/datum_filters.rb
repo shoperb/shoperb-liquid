@@ -125,7 +125,7 @@ module ShoperbLiquid
       return value unless limit
       value.to_a.sample limit
     end
-    deprecate :random
+    deprecate :random, deprecator: ActionDispatch.deprecator
 
     def sum(collection, field)
       collection.pluck(field).sum
