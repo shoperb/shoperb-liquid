@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "liquid", ">= 4.0.0"
   gem.add_dependency "activesupport"
   gem.add_dependency "actionpack"
-  gem.add_dependency "pagy", ">= 3.7.5"
+  gem.add_dependency "pagy"
   gem.add_dependency "i18n"
   gem.add_dependency "request_store"
 end
