@@ -10,6 +10,7 @@ module ShoperbLiquid
       Liquid::Template.register_filter ShoperbLiquid::UrlFilters
       Liquid::Template.register_filter ShoperbLiquid::DatumFilters
       Liquid::Template.register_filter ShoperbLiquid::AssetFilters
+      Liquid::Template.register_filter ShoperbLiquid::CollectionFilters
       Liquid::Template.register_filter ShoperbLiquid::HtmlFilters
       Liquid::Template.register_filter ShoperbLiquid::TranslateFilters
       Liquid::Template.register_filter ShoperbLiquid::ExtensionFilters
