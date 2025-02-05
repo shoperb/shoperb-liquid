@@ -8,13 +8,15 @@ module ShoperbLiquid
         hash_value = el.custom_fields[name]
         if hash_value
           if hash_value["set_values"] == []
-            leave_blank 
+            leave_blank
+          elsif !value || value == ""
+            false
           else
             hash_value["set_values"].include?(value)
           end
         else
           # if true and not present, then leacing in collection
-          leave_blank 
+          leave_blank
         end
       end
       # filter_array(input, property, target_value) { |ary, &block| ary.select(&block) }
