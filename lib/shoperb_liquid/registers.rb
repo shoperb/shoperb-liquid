@@ -7,23 +7,23 @@ module ShoperbLiquid
     extend self
 
     def register_filters
-      Liquid::Template.register_filter ShoperbLiquid::UrlFilters
-      Liquid::Template.register_filter ShoperbLiquid::DatumFilters
-      Liquid::Template.register_filter ShoperbLiquid::AssetFilters
-      Liquid::Template.register_filter ShoperbLiquid::CollectionFilters
-      Liquid::Template.register_filter ShoperbLiquid::HtmlFilters
-      Liquid::Template.register_filter ShoperbLiquid::TranslateFilters
-      Liquid::Template.register_filter ShoperbLiquid::ExtensionFilters
-      Liquid::Template.register_filter ShoperbLiquid::ThemeFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::UrlFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::DatumFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::AssetFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::CollectionFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::HtmlFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::TranslateFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::ExtensionFilters
+      Liquid::Environment.default.register_filter ShoperbLiquid::ThemeFilters
     end
 
     def register_tags
-      Liquid::Template.register_tag "layout",   ShoperbLiquid::LayoutTag
-      Liquid::Template.register_tag "paginate", ShoperbLiquid::PaginateTag
-      Liquid::Template.register_tag "form",     ShoperbLiquid::FormTag
-      Liquid::Template.register_tag "section",  ShoperbLiquid::SectionTag
-      Liquid::Template.register_tag "cache",    ShoperbLiquid::CacheTag
-      Liquid::Template.register_tag "products_filter",  ShoperbLiquid::ProductsFilterTag
+      Liquid::Environment.default.register_tag "layout",   ShoperbLiquid::LayoutTag
+      Liquid::Environment.default.register_tag "paginate", ShoperbLiquid::PaginateTag
+      Liquid::Environment.default.register_tag "form",     ShoperbLiquid::FormTag
+      Liquid::Environment.default.register_tag "section",  ShoperbLiquid::SectionTag
+      Liquid::Environment.default.register_tag "cache",    ShoperbLiquid::CacheTag
+      Liquid::Environment.default.register_tag "products_filter",  ShoperbLiquid::ProductsFilterTag
       ''
     end
 

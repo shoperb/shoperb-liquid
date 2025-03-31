@@ -105,7 +105,7 @@ module ShoperbLiquid
     # liquid < 5.0
     # taken from "include" tag, changed a call to file system
     def read_template_from_file_system(context)
-      Liquid::Template.file_system.read_section_file(
+      Liquid::Environment.default.file_system.read_section_file(
         context.evaluate(@template_name_expr)
       )
     end
