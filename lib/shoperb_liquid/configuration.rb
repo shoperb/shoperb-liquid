@@ -11,13 +11,13 @@ module ShoperbLiquid
       @file_system  = default_file_system
       @translator   = default_translator
       @routes       = default_routes
-      @error_mode   = Liquid::Environment.error_mode = :lax
+      @error_mode   = Liquid::Environment.default.error_mode = :lax
       @error_notify = default_error_notify
       @models_namespace = nil
     end
 
     def file_system=(value)
-      @file_system = Liquid::Environment.file_system = value
+      @file_system = Liquid::Environment.default.file_system = value
     end
 
     def environment=(value)
@@ -25,7 +25,7 @@ module ShoperbLiquid
     end
 
     def error_mode=(value)
-      @error_mode = Liquid::Environment.error_mode = value
+      @error_mode = Liquid::Environment.default.error_mode = value
     end
 
     def models_namespace=(namespace)
