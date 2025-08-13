@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
     "bug_tracker_uri"  => "https://github.com/shoperb/theme-editor/issues"
   }
 
-  gem.add_dependency "liquid", "~> 5.8.0"
+  gem.add_dependency "liquid", ">= 4.0.0"
   gem.add_dependency "activesupport", "~> 7.1.2"
   gem.add_dependency "actionpack", "~> 7.1.2"
   gem.add_dependency "pagy", "~> 9.3.5"
