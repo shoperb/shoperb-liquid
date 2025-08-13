@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 Gem::Specification.new do |gem|
   gem.name    = "shoperb_liquid"
-  gem.version = "0.0.1"
+  gem.version = "0.0.2"
   gem.required_ruby_version = ">= 3.2.0"
 
   gem.author    = ["Shoperb"]
@@ -28,10 +28,10 @@ Gem::Specification.new do |gem|
     "bug_tracker_uri"  => "https://github.com/shoperb/theme-editor/issues"
   }
 
-  gem.add_dependency "liquid", "~> 4.0.0"
+  gem.add_dependency "liquid", "~> 5.8.0"
   gem.add_dependency "activesupport", "~> 7.1.2"
   gem.add_dependency "actionpack", "~> 7.1.2"
   gem.add_dependency "pagy", "~> 9.3.5"
-  gem.add_dependency "i18n", "~> 1.9.0"
+  gem.add_dependency "i18n", "~> 1.14.0"
   gem.add_dependency "request_store", "~> 1.7.0"
 end
