@@ -5,11 +5,11 @@ Gem::Specification.new do |gem|
   gem.version = "0.0.1"
   gem.required_ruby_version = ">= 3.2.0"
 
-  gem.author    = ["Shoperb"]
-  gem.email     = ["engineering@shoperb.com"]
-  gem.summary   = "Custom Liquid drops, tags, and filters for building Shoperb themes."
-  gem.homepage  = "https://shoperb.dev"
-  gem.license   = "MIT"
+  gem.author   = ["Shoperb"]
+  gem.email    = ["engineering@shoperb.com"]
+  gem.summary  = "shoperb_liquid is a liquid drops, tags and filters for Shoperb"
+  gem.homepage = "https://shoperb.dev"
+  gem.license = "MIT"
 
   gem.files = Dir[
     "lib/**/*",
