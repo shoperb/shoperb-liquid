@@ -2,7 +2,7 @@
 
 module ShoperbLiquid
   class CollectionDrop < Liquid::Drop
-    include Pagy::Backend
+    include Pagy::Method
 
     attr_reader :collection
 
@@ -88,9 +88,9 @@ module ShoperbLiquid
         collection.paginate(page, per_page)
 
       elsif collection.is_a?(Array)
-        # copy of pagy/extras/array
-        pagy = Pagy.new(count: collection.size,  page:  page, limit: per_page)
-        [pagy, collection[pagy.offset, pagy.limit]]
+        # copy of offset
+        pagy = Pagy::Offset.new(count: collection.size,  page:  page, limit: per_page)
+        [pagy, collection.instance_of?(Array) ? collection[pagy.offset, pagy.limit] : pagy.records(collection)]
 
       else
         loc_coll = collection.dup
