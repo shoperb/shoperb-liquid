@@ -6,11 +6,11 @@ module ShoperbLiquid
       @record = ProductSearch.new(word: word, **options.to_h)
     end
 
-    def paginate(page=1, search_size=25)
+    def paginate(page: 1, per: 25)
       return self unless searching?
 
       page        &&= page.to_i
-      search_size &&= search_size.to_i
+      search_size &&= per.to_i
 
       record.paginate(page: page, per: search_size)
     end

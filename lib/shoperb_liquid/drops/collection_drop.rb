@@ -83,20 +83,20 @@ module ShoperbLiquid
 
     protected
 
-    def paginate(page, per_page)
+    def paginate(page:, per:)
       pagy, items = if (collection.respond_to?(:paginate))
-        collection.paginate(page, per_page)
+        collection.paginate(page: page, per: per)
 
       elsif collection.is_a?(Array)
         # copy of offset
-        pagy = Pagy::Offset.new(count: collection.size,  page:  page, limit: per_page)
+        pagy = Pagy::Offset.new(count: collection.size,  page:  page, limit: per)
         [pagy, collection.instance_of?(Array) ? collection[pagy.offset, pagy.limit] : pagy.records(collection)]
 
       else
         loc_coll = collection.dup
         # support for shoperb website when it tries not to load all data at once
         loc_coll = loc_coll.unscope(:limit,:offset) if loc_coll.respond_to?(:unscope)
-        pagy(loc_coll, limit: per_page, page: page)
+        pagy(loc_coll, limit: per, page: page)
       end
 
       return pagy, self.class.new(items)

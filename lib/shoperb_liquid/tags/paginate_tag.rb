@@ -59,7 +59,7 @@ module ShoperbLiquid
         collection ||= CollectionDrop.new(Product.none)
 
         current    = context["current_page"].to_i == 0 ? 1 : context["current_page"].to_i
-        pagy,scope = collection.send(:paginate, current, get_page_number(@page_size))
+        pagy,scope = collection.send(:paginate, page: current, per: get_page_number(@page_size))
 
         paginator = {
           total:      pagy.count,
