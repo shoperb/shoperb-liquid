@@ -90,13 +90,14 @@ module ShoperbLiquid
       elsif collection.is_a?(Array)
         # copy of offset
         pagy = Pagy::Offset.new(count: collection.size,  page:  page, limit: per)
-        [pagy, collection.instance_of?(Array) ? collection[pagy.offset, pagy.limit] : pagy.records(collection)]
+        [pagy, collection[pagy.offset, pagy.limit]]
 
       else
         loc_coll = collection.dup
         # support for shoperb website when it tries not to load all data at once
         loc_coll = loc_coll.unscope(:limit,:offset) if loc_coll.respond_to?(:unscope)
-        pagy(loc_coll, limit: per, page: page)
+        pagy = Pagy::Offset.new(count: loc_coll.size,  page:  page, limit: per)
+        [pagy, pagy.records(loc_coll)]
       end
 
       return pagy, self.class.new(items)
