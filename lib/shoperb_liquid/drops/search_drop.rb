@@ -9,10 +9,10 @@ module ShoperbLiquid
     def paginate(page: 1, per: 25)
       return self unless searching?
 
-      page        &&= page.to_i
-      search_size &&= per.to_i
+      page &&= page.to_i
+      per  &&= per.to_i
 
-      record.paginate(page: page, per: search_size)
+      record.paginate(page: page, per: per)
     end
 
     def performed
